@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Lancaster Medical School - CHICAS - {% block title %}{{resource.meta.title}}{% endblock %}</title>
+
+	<!-- Mobile viewport optimisation -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- (en) Add your meta data here -->
+	<!-- (de) Fuegen Sie hier ihre Meta-Daten ein -->
+
+	<link href="{{media_url('/css/flexible-grids.css')}}" rel="stylesheet" type="text/css"/>
+	<!--[if lte IE 7]>
+	<link href="{{media_url('/css/yaml/core/iehacks.css')}}" rel="stylesheet" type="text/css" />
+	<![endif]-->
+{% block extrahead %}
+{% endblock %}
+	<!--[if lt IE 9]>
+	<script src="../lib/html5shiv/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+<ul class="ym-skiplinks">
+  <li><a class="ym-skip" href="#nav">Skip to navigation (Press Enter)</a></li>
+  <li><a class="ym-skip" href="#main">Skip to main content (Press Enter)</a></li>
+</ul>
+
+<header>
+  <div class="ym-wrapper ym-clearfix">
+    <div class="ym-wbox">
+<img alt="CHICAS" src="{{media_url('/images/clogo.png')}}"  /> 
+<img alt="Health and Medicine, Lancaster University" src="{{media_url('/images/lulogo.png')}}" style="float:right" />
+      </div>
+    </div>
+  </div>
+</header>
+<nav id="nav">
+  <div class="ym-wrapper">
+    <div class="ym-hlist">
+      {% block nav %}
+      {% from "macros.j2" import render_nav with context %}
+      {{ render_nav(menu, 'main_nav') }}
+      {% endblock %}
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="ym-wrapper">
+    <div class="ym-wbox">
+      {% block abovecontent %}
+      {% endblock %}
+<section class="ym-grid linearize-level-1">
+  <article class="ym-g66 ym-gl content">
+    <div class="ym-gbox-left ym-clearfix">
+      {% block main %}
+      {% endblock %}
+    </div>
+  </article>
+  <aside class="ym-g33 ym-gr">
+    <div class="ym-gbox-right ym-clearfix">
+      {% block sidebar %}
+
+      {% if resource.meta.people %}
+      <h2>People</h2>
+      {% set peoplenode = resource.node.root.node_from_relative_path("people/") %}
+      <ul>
+	{% for person in resource.meta.people  %}
+	{% set p = peoplenode.get_resource(person + ".html") %}
+	<li><a href="{{p.full_url}}">{{p.meta.title}}</a></li>
+	{% endfor %}
+      </ul>
+      {% endif %}
+
+      {% if resource.meta.projects %}
+      <h2>Project Pages</h2>
+      {% set projectnode = resource.node.root.node_from_relative_path("projects/") %}
+      <ul>
+	{% for project in resource.meta.projects  %}
+	{% set p = projectnode.get_resource(project + ".html") %}
+	<li><a href="{{p.full_url}}">{{p.meta.title}}</a></li>
+	{% endfor %}
+      </ul>
+      {% endif %}			
+      
+{% if resource.meta.links %}
+<h2>Links</h2>
+<ul>
+{% for link in resource.meta.links %}
+<li>
+<a href="{{link.url}}">{{link.description}}</a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+      {% endblock %}
+    </div>
+  </aside>
+</section>
+{% block belowcontent %}
+{% endblock %}
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="ym-wrapper">
+    <div class="ym-wbox">
+      <p>© Lancaster University 2014 &ndash; Layout based on <a href="http://www.yaml.de">YAML</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- full skip link functionality in webkit browsers -->
+<script src="{{media_url('/css/yaml/core/js/yaml-focusfix.js')}}"></script>
+{% block footscripts %}
+{% endblock %}
+</body>
+</html>

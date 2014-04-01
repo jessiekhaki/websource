@@ -1,0 +1,16 @@
+---
+extends: flexigrid.j2
+default_block: main
+title: Chicas Projects
+description: List of projects
+---
+
+<h2>Projects</h2>
+
+<ul>
+{% for res in resource.node.walk_resources() %}
+{% if res.meta.extends == "project.j2" and res.is_processable %}
+<li><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
+{% endif %}
+{% endfor %}
+</ul>

@@ -1,0 +1,55 @@
+---
+extends: flexigridmap.j2
+title: Home page
+description: Home page for CHICAS
+---
+{% block belowcontent %}
+<section class="box info">
+  <div class="ym-grid linearize-level-1">
+    <div class="ym-g66 ym-gl">
+      <div class="ym-grid linearize-level-2">
+	<article class="ym-g50 ym-gl">
+	  <div class="ym-gbox-left">
+	    <h4>Our Work</h4>
+	    <p>
+Want to know more about spatial epidemiology or the work of the group?
+</p>
+	    <p><a class="ym-button ym-next" href="about.html">Read More</a></p>
+	  </div>
+	</article>
+	<article class="ym-g50 ym-gr">
+	  <div class="ym-gbox">
+	    <h4>Latest News</h4>
+	    <p>
+	      We recently deployed a real-time admissions forecasting system for a leading children's hospital. Our statistical
+	      methods perform better than existing predictive methods and help in efficient resource planning.</p>
+	    <p><a class="ym-button ym-next" href="news/hospital_predictions_deployed.html">Read More</a></p>
+	  </div>
+	</article>
+      </div>
+      
+    </div>
+    <article class="ym-g33 ym-gr">
+      <div class="ym-gbox-right secondary">
+	<h4>Tags</h4>
+
+{% for tag,meta in site.tagger.tags.to_dict()|dictsort %}
+<a href="tags.html#{{tag}}">{{tag}}</a> 
+{% endfor %}
+      </div>
+    </article>
+  </div>
+</section>
+{% endblock %}
+
+{% block main %}
+<p>
+CHICAS (Combining Health Information, Computation And Statistics) is a research group of statisticians and epidemiologists in the Lancaster Medical School. The aims of the group are:
+<ul>
+<li>to develop new statistical and epidemiological methodology motivated by, and applied to,
+substantive research problems in the population health sciences;</li>
+<li>to train future researchers at the interface between statistics and population health sciences;</li>
+<li>to collaborate with researchers in the biomedical and health sciences.</li>
+</ul>
+</p>
+{% endblock %}

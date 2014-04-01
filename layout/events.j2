@@ -1,0 +1,19 @@
+{% extends "flexigrid.j2" %}
+
+{% block main %}
+<h2>{{ resource.meta.title }}</h2>
+{% block event%}
+{% endblock %}
+
+{% if resource.meta.people %}
+<h2>People</h2>
+{% set peoplenode = resource.node.root.node_from_relative_path("people/") %}
+<ul>
+{% for person in resource.meta.people  %}
+{% set p = peoplenode.get_resource(person + ".html") %}
+<li><a href="{{p.full_url}}">{{p.meta.title}}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

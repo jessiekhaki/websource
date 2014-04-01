@@ -1,0 +1,12 @@
+{ "type": "FeatureCollection",
+    "features": [
+{% for res in resource.node.root.walk_resources() %}
+{% if res.meta.location %}
+      { "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [{{res.meta.location}}]},
+        "properties": {"name": "{{res.meta.title}}", "link": "{{res.full_url}}"}
+        },
+{% endif %}
+{% endfor %}
+{}
+]}

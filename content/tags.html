@@ -1,0 +1,18 @@
+---
+extends: flexigrid.j2
+default_block: main
+title: tags
+description: all content by tag
+---
+{% for tag, meta in site.tagger.tags %}
+<h2 name="{{tag}}" id="{{tag}}">{{ tag }}</h2>
+
+{# ... and get all resurces tagged with that node. #}
+<ul>
+{% for res in resource.node.walk_resources_tagged_with(tag) %}
+<li><a href="{{res.full_url}}">{{ res.meta.description }}</a></li>
+{% endfor %}
+</ul>
+
+{% endfor %}
+
