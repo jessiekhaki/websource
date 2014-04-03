@@ -5,11 +5,21 @@ title: Chicas Projects
 description: List of projects
 ---
 
-<h2>Projects</h2>
+<h2>Current Projects</h2>
 
 <ul>
 {% for res in resource.node.walk_resources() %}
-{% if res.meta.extends == "project.j2" and res.is_processable %}
+{% if res.meta.extends == "project.j2" and res.is_processable and not res.meta.finished %}
+<li><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
+{% endif %}
+{% endfor %}
+</ul>
+
+<h2>Finished Projects</h2>
+
+<ul>
+{% for res in resource.node.walk_resources() %}
+{% if res.meta.extends == "project.j2" and res.is_processable and res.meta.finished %}
 <li><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
 {% endif %}
 {% endfor %}

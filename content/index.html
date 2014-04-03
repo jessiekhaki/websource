@@ -34,7 +34,7 @@ Want to know more about spatial epidemiology or the work of the group?
 	<h4>Tags</h4>
 
 {% for tag,meta in site.tagger.tags.to_dict()|dictsort %}
-<a href="tags.html#{{tag}}">{{tag}}</a> 
+<span class="tag label"><a href="tags.html#{{tag}}">{{tag}}</a></span>
 {% endfor %}
       </div>
     </article>

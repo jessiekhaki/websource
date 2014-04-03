@@ -4,8 +4,17 @@ default_block: main
 title: tags
 description: all content by tag
 ---
-{% for tag, meta in site.tagger.tags %}
-<h2 name="{{tag}}" id="{{tag}}">{{ tag }}</h2>
+<h2>Tags</h2>
+<p>This page shows all web content by tag.</p>
+
+<p>Jump to: 
+{% for tag,meta in site.tagger.tags.to_dict()|dictsort %}
+<span class="tag label"><a href="#{{tag}}">{{tag}}</a></span>
+{% endfor %}
+</p>
+
+{% for tag, meta in site.tagger.tags.to_dict()|dictsort %}
+<h3 name="{{tag}}" id="{{tag}}">{{ tag }}</h3>
 
 {# ... and get all resurces tagged with that node. #}
 <ul>
