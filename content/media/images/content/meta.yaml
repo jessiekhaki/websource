@@ -1,6 +1,6 @@
  thumbnails:
-  - width: 150
-    prefix: profile_
+  - width: 200
+    prefix: page_
     include:
     - '*.png'
     - '*.jpg'

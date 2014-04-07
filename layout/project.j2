@@ -2,6 +2,12 @@
 
 {% block main %}
 <h2>{{ resource.meta.title }}</h2>
+{% if resource.meta.image %}
+<div class="pagepic">
+<img src="{{media_url('/images/content/page_'+resource.meta.image.name)}}">
+<br/>{{resource.meta.image.caption}}
+</div>
+{% endif %}
 {% block project %}
 {% endblock %}
 {% endblock %}
