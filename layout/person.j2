@@ -13,7 +13,13 @@
 {% set imgd = resource.node.root.node_from_relative_path("media/images/people/") %}
 {% set r = imgd.contains_resource(resource.slug+".jpg") %}
 {% if r %}
+<div class="profilepic">
 <img src="{{media_url('/images/people/profile_'~resource.slug~'.jpg')}}">
+</div>
+{% endif %}
+
+{% if resource.meta.email %}
+Email: <a href="mailto:{{resource.meta.email}}">{{resource.meta.email}}</a>
 {% endif %}
 
 {% set projectnode = resource.node.root.node_from_relative_path("projects/") %}
