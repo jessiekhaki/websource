@@ -1,0 +1,21 @@
+ thumbnails:
+  - width: 50
+    prefix: thumbs1_
+    include:
+    - '*.png'
+    - '*.jpg'
+  - height: 100
+    prefix: thumbs2_
+    include:
+    - '*.png'
+    - '*.jpg'
+  - larger: 100
+    prefix: thumbs3_
+    include:
+    - '*.png'
+    - '*.jpg'
+  - smaller: 50
+    prefix: thumbs4_
+    include:
+    - '*.png'
+    - '*.jpg'

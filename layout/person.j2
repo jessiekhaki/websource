@@ -8,6 +8,14 @@
 </p>
 {% endblock %}
 {% block sidebar %}
+
+
+{% set imgd = resource.node.root.node_from_relative_path("media/images/people/") %}
+{% set r = imgd.contains_resource(resource.slug+".jpg") %}
+{% if r %}
+<img src="{{media_url('/images/people/profile_'~resource.slug~'.jpg')}}">
+{% endif %}
+
 {% set projectnode = resource.node.root.node_from_relative_path("projects/") %}
 {% set all = [] %}
 {% for project in projectnode.resources %}

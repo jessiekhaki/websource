@@ -11,6 +11,7 @@ plugins:
     - hyde.ext.plugins.meta.TaggerPlugin
     - hyde.ext.plugins.text.SyntextPlugin
     - hyde.ext.plugins.text.TextlinksPlugin
+    - hyde.ext.plugins.images.ImageThumbnailsPlugin
 context:
     data:
         menu:
@@ -90,3 +91,4 @@ publisher:
         path: ../chicas-lancaster.github.io/
         url: git@github.com:chicas-lancaster/chicas-lancaster.github.io.git
         branch: "master"
+

@@ -1,0 +1,6 @@
+ thumbnails:
+  - height: 150
+    prefix: profile_
+    include:
+    - '*.png'
+    - '*.jpg'

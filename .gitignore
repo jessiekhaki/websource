@@ -2,3 +2,4 @@
 *.pyc
 deploy/
 .hyde_deps
+content/.thumbnails
