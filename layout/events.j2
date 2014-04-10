@@ -5,6 +5,20 @@
 {% block event%}
 {% endblock %}
 
+{% endblock %}
+
+{% block sidebar %}
+
+<dl>
+{% if resource.meta.start %}
+<dt>Start</dt><dd>{{ resource.meta.start }}</dd>
+{% endif %}
+
+{% if resource.meta.end %}
+<dt>End</dt><dd>{{ resource.meta.end }}</dd>
+{% endif %}
+</dl>
+
 {% if resource.meta.people %}
 <h2>People</h2>
 {% set peoplenode = resource.node.root.node_from_relative_path("people/") %}

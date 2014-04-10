@@ -10,7 +10,9 @@ description: Diary Dates
 <ul>
 {% for res in resource.node.walk_resources() %}
 {% if res.meta.extends == "events.j2" and res.is_processable %}
-<li><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
+<li>{{res.meta.start|todateformat}} <a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
 {% endif %}
 {% endfor %}
 </ul>
+ 
+ 
