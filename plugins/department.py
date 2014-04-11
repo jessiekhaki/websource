@@ -1,4 +1,5 @@
 from hyde.plugin import Plugin
+from hyde.ext.plugins.meta import Metadata, MetaPlugin
 from jinja2 import environmentfilter, Environment
 
 from datetime import datetime
@@ -23,7 +24,7 @@ filters={
     'todateformat': todateformat
 }
 
-class DepartmentPlugin(Plugin):
+class DepartmentPlugin(MetaPlugin):
     
     def __init__(self,site):
         super(DepartmentPlugin, self).__init__(site)
@@ -33,7 +34,24 @@ class DepartmentPlugin(Plugin):
         self.template.env.filters.update(filters)
 
     def begin_site(self):
-        pass
+        config = self.site.config
+        metadata = config.meta if hasattr(config, 'meta') else {}
+        self.site.meta = Metadata(metadata)
+        self.nodemeta = 'nodemeta.yaml'
+        if hasattr(self.site.meta, 'nodemeta'):
+            self.nodemeta = self.site.meta.nodemeta
+        for node in self.site.content.walk():
+            self.__read_node__(node)
+            for resource in node.resources:
+                if not hasattr(resource, 'meta'):
+                    resource.meta = Metadata({}, node.meta)
+                if resource.source_file.is_text and not resource.simple_copy:
+                    self.__read_resource__(resource, resource.source_file.read_all())
+                if hasattr(resource.meta,"start"):
+                    print "setting start for ",str(resource)
+                    resource.meta.startdate=todatetime(resource.meta.start)
+                if hasattr(resource.meta,"end"):
+                    resource.meta.enddate=todatetime(resource.meta.end)
 
     def site_complete(self):
         pass
@@ -45,10 +63,7 @@ class DepartmentPlugin(Plugin):
         pass
     
     def begin_text_resource(self, resource, text):
-        if hasattr(resource.meta,"start"):
-            resource.meta.startdate=todatetime(resource.meta.start)
-        if hasattr(resource.meta,"end"):
-            resource.meta.enddate=todatetime(resource.meta.end)
+        pass
 
 
     # def text_resource_complete(self, resource, text):
