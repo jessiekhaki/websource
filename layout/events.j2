@@ -11,11 +11,11 @@
 
 <dl>
 {% if resource.meta.start %}
-<dt>Start</dt><dd>{{ resource.meta.start }}</dd>
+<dt>Start</dt><dd>{{ resource.meta.startdate|todateformat }}</dd>
 {% endif %}
-
+ 
 {% if resource.meta.end %}
-<dt>End</dt><dd>{{ resource.meta.end }}</dd>
+<dt>End</dt><dd>{{ resource.meta.enddate|todateformat }}</dd>
 {% endif %}
 </dl>
 

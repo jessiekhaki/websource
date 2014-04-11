@@ -5,6 +5,9 @@ from datetime import datetime
 
 @environmentfilter
 def todateformat(env, value, verbose=False):
+    return value.strftime("%d %B %Y %H:%M")
+
+def todatetime(value):
     try:
         when = datetime.strptime(value,"%Y-%m-%d %H:%M")
     except:
@@ -13,8 +16,8 @@ def todateformat(env, value, verbose=False):
         except:
             raise ValueError
    
-    return when.strftime("%d %B %Y")
-
+    return when
+    
 
 filters={
     'todateformat': todateformat
@@ -42,7 +45,11 @@ class DepartmentPlugin(Plugin):
         pass
     
     def begin_text_resource(self, resource, text):
-        pass
+        if hasattr(resource.meta,"start"):
+            resource.meta.startdate=todatetime(resource.meta.start)
+        if hasattr(resource.meta,"end"):
+            resource.meta.enddate=todatetime(resource.meta.end)
+
 
     # def text_resource_complete(self, resource, text):
     #     print "complete ",resource, text)
