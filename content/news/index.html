@@ -7,10 +7,10 @@ description: Updates from the group
 
 <h2>News</h2>
 
-<ul>
+<table>
 {% for res in resource.node.walk_resources() %}
 {% if res.meta.extends == "news.j2" and res.is_processable %}
-<li><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
+<tr><td>{{res.meta.releasedate.strftime("%A, %d %B  %Y")}}</td><td><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</td></tr>
 {% endif %}
 {% endfor %}
-</ul>
+</table>

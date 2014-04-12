@@ -4,16 +4,18 @@ from jinja2 import environmentfilter, Environment
 
 from datetime import datetime
 
+import sys
+
 @environmentfilter
 def todateformat(env, value, verbose=False):
     return value.strftime("%d %B %Y %H:%M")
 
 def todatetime(value):
     try:
-        when = datetime.strptime(value,"%Y-%m-%d %H:%M")
+        when = datetime.strptime(str(value),"%Y-%m-%d %H:%M")
     except:
         try:
-            when = datetime.strptime(value,"%Y-%m-%d")
+            when = datetime.strptime(str(value),"%Y-%m-%d")
         except:
             raise ValueError
    
@@ -52,6 +54,9 @@ class DepartmentPlugin(MetaPlugin):
                     resource.meta.startdate=todatetime(resource.meta.start)
                 if hasattr(resource.meta,"end"):
                     resource.meta.enddate=todatetime(resource.meta.end)
+                if hasattr(resource.meta,"release"):
+                    print resource.meta.release
+                    resource.meta.releasedate=todatetime(resource.meta.release)
 
     def site_complete(self):
         pass
