@@ -7,28 +7,23 @@
 
 {% endblock %}
 
-{% block sidebar %}
-
-<dl>
+{% block uppersidebar %}
+<h2>Time and Place</h2>
+<table class="narrow">
 {% if resource.meta.start %}
-<dt>Start</dt><dd>{{ resource.meta.startdate|todateformat }}</dd>
+<tr><td>Start</td><td>{{ resource.meta.startdate|todateformat }}</td></tr>
 {% endif %}
  
 {% if resource.meta.end %}
-<dt>End</dt><dd>{{ resource.meta.enddate|todateformat }}</dd>
+<tr><td>End</td><td>{{ resource.meta.enddate|todateformat }}</td></tr>
 {% endif %}
-</dl>
 
-{% if resource.meta.people %}
-<h2>People</h2>
-{% set peoplenode = resource.node.root.node_from_relative_path("people/") %}
-<ul>
-{% for person in resource.meta.people  %}
-{% set p = peoplenode.get_resource(person + ".html") %}
-<li><a href="{{p.full_url}}">{{p.meta.title}}</a></li>
-{% endfor %}
-</ul>
+{% if resource.meta.location %}
+<tr><td>Location</td><td>{{resource.meta.location}}</td></tr>
 {% endif %}
+
+</table>
+
 
 {% endblock %}
 

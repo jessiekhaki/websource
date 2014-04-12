@@ -63,7 +63,8 @@
   <aside class="ym-g33 ym-gr">
     <div class="ym-gbox-right ym-clearfix">
       {% block sidebar %}
-
+{% block uppersidebar %}
+{% endblock uppersidebar %}
       {% if resource.meta.people %}
       <h2>People</h2>
       {% set peoplenode = resource.node.root.node_from_relative_path("people/") %}
