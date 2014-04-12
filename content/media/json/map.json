@@ -1,9 +1,9 @@
 { "type": "FeatureCollection",
     "features": [
 {% for res in resource.node.root.walk_resources() %}
-{% if res.meta.location %}
+{% if res.meta.map %}
       { "type": "Feature",
-        "geometry": {"type": "Point", "coordinates": [{{res.meta.location}}]},
+        "geometry": {"type": "Point", "coordinates": [{{res.meta.map}}]},
         "properties": {"name": "{{res.meta.title}}", "link": "{{res.full_url}}"}
         },
 {% endif %}
