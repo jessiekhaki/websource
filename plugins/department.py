@@ -5,6 +5,7 @@ from jinja2 import environmentfilter, Environment
 from datetime import datetime
 
 import sys
+import urllib
 
 @environmentfilter
 def todateformat(env, value, verbose=False):
@@ -21,9 +22,35 @@ def todatetime(value):
    
     return when
     
+@environmentfilter
+def datacalendar(env, value, verbose=False):
+    """ return a data-url for the icalendar representation of this resource 
+    needs a start and end time """
+    template = """
+BEGIN VCALENDAR
+{0}
+END VCALENDAR
+"""
+    cal_text = template.format(value.meta.start)
+    base64_data = cal_text.encode("base64").replace("\n", "")
+    cal_url = 'data:text/calendar;base64,{0}'.format(base64_data) 
+    return cal_url
+    
+@environmentfilter
+def googlecalendar(env, value, verbose=False):
+    URL_template="https://www.google.com/calendar/render?action=TEMPLATE&text={0}&details={1}&dates={2}/{3}&location={4}&sf=true&output=xml"
+    URL = URL_template.format(urllib.quote_plus(value.meta.title), 
+                              urllib.quote_plus(value.meta.description),
+                              value.meta.startdate.strftime("%Y%m%dT%H%M%S"),
+                              value.meta.enddate.strftime("%Y%m%dT%H%M%S"),
+                              urllib.quote_plus(value.meta.location))
+    return URL
+    
 
 filters={
-    'todateformat': todateformat
+    'todateformat': todateformat,
+    'calurl': datacalendar,
+    'googleurl': googlecalendar
 }
 
 class DepartmentPlugin(MetaPlugin):
