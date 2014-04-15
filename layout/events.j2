@@ -1,6 +1,10 @@
 {% extends "flexigrid.j2" %}
 
 {% block main %}
+{% if resource.meta.series_title %}
+<h2>{{ resource.meta.series_title }}</h2>
+{% endif %}
+
 <h2>{{ resource.meta.title }}</h2>
 {% block event%}
 {% endblock %}
