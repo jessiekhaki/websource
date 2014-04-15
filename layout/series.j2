@@ -3,12 +3,13 @@
 {% block main %}
 
 {% block mainhead %}
-
+<h2>{{resource.meta.title}}</h2>
+<h3>{{resource.meta.description}}</h3>
 {% endblock %}
 <div id="tables">
 
 <div id="allevents">
-<h2>Events</h2>
+<h3>Events</h3>
 <table id="eventlist">
 {% for res in resource.node.walk_resources() %}
 {% if res.meta.extends == "events.j2" and res.is_processable %}
@@ -37,10 +38,10 @@ var isfuture = trs.map(function(i,r){return new Date($(r).data('start'))>now});
 var forthcoming = $.grep(trs, function(e,i){return isfuture[i]});
 var past = $.grep(trs, function(e,i){return !isfuture[i]});
 
-$("#tables").append("<div id='coming'><h2>Coming Events</h2><table id='forth'></table></div>");
+$("#tables").append("<div id='coming'><h3>Coming Events</h3><table id='forth'></table></div>");
 $("#forth").append(forthcoming);
 
-$("#tables").append("<div id='past'><h2>Past Events</h2><table id='pastevents'></table></div>");
+$("#tables").append("<div id='past'><h3>Past Events</h3><table id='pastevents'></table></div>");
 $("#pastevents").append(past);
 
 $("#allevents").remove();
