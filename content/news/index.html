@@ -8,9 +8,12 @@ description: Updates from the group
 <h2>News</h2>
 
 <table>
-{% for res in resource.node.walk_resources() %}
+{% set items = resource.node.walk_resources()|selectattr("is_processable")|selectattr("meta.release") %}
+
+{% for res in items|sort(reverse=True, attribute="meta.release") %}
 {% if res.meta.extends == "news.j2" and res.is_processable %}
 <tr><td>{{res.meta.releasedate.strftime("%A, %d %B  %Y")}}</td><td><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</td></tr>
 {% endif %}
 {% endfor %}
 </table>
+
