@@ -1,13 +1,15 @@
 {% extends "flexigrid.j2" %}
 
 {% block main %}
-{% if resource.meta.series_title %}
-<h2><a href="./">{{ resource.meta.series_title }}</a></h2>
-{% endif %}
 
 <h2>{{ resource.meta.title }}</h2>
 {% block event%}
 {% endblock %}
+
+{% if resource.meta.series_title %}
+<h3>Part of the <a href="./">{{ resource.meta.series_title }}</a> series</h3>
+{% endif %}
+
 
 {% endblock %}
 
