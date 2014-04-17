@@ -46,5 +46,35 @@ $("#pastevents").append(past);
 
 $("#allevents").remove();
 
+
+function sortTable(table, order){
+  var rows = $(table + ' tbody  tr').get();
+
+  rows.sort(function(a, b) {
+
+  var A = $(a).data("start");
+  var B = $(b).data("start");
+
+  if(A < B) {
+    return -1 * order;
+  }
+
+  if(A > B) {
+    return 1 * order;
+  }
+
+  return 0;
+
+  });
+
+  $.each(rows, function(index, row) {
+    $(table).children('tbody').append(row);
+  });
+}
+
+sortTable("#forth", 1);
+sortTable("#pastevents", -1);
+
+
 </script>
 {% endblock footscripts %}
