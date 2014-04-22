@@ -4,3 +4,8 @@
     include:
     - '*.png'
     - '*.jpg'
+  - height: 500
+    prefix: box_
+    include:
+    - '*.png'
+    - '*.jpg'
