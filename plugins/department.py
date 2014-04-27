@@ -45,6 +45,10 @@ def todatetime(value):
     return when
     
 @environmentfilter
+def tovevent(env, value, verbose=False):
+    return vEvent(value)
+
+@environmentfilter
 def datacalendar(env, value, verbose=False):
     """ return a data-url for the icalendar representation of this resource 
     needs a start and end time """
@@ -73,7 +77,8 @@ def googlecalendar(env, value, verbose=False):
 filters={
     'todateformat': todateformat,
     'calurl': datacalendar,
-    'googleurl': googlecalendar
+    'googleurl': googlecalendar,
+    'vevent': tovevent
 }
 
 class DepartmentPlugin(MetaPlugin):

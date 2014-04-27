@@ -29,6 +29,12 @@ description: Diary Dates
 {% endblock %}
 
 {% block sidebar %}
+<h3>Calendar Feed</h3>
+<p>
+Add our <a href="events.ics">iCal</a> file
+to your calendar system for updates, or subscribe
+to individual events from the event page.
+</p>
 <h3>Event Series</h3>
 <ul>
 {% for sub in resource.node.child_nodes %}
