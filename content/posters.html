@@ -7,14 +7,17 @@ posters:
    file: 110523_ASCOposter.pdf
    image: 110523_ASCOposter.jpg
    authors: Ivonne Solis-Trapala
+
  - title: "Bayesian parameter estimation for the log-Gaussian Cox process"
    file: INFER2011.pdf
    image: INFER2011.jpg
    authors: Peter Diggle, Ben Taylor, Barry Rowlingson
+
  - title: "Understanding the natural progression in %FEV1 decline in patients with cystic fibrosis"
    file: ECFposter26May.pdf
    image: ECFposter26May.jpg
    authors: Peter Diggle
+
  - title: "Acute response to Sarin in veterans tested at Porton Down"
    file: ISEE2009.pptx
    image: ISEE2009.jpg
@@ -116,8 +119,25 @@ posters:
 {% block main %}
 <h1>Research Posters</h1>
 
-{% for poster in resource.meta.posters %}
-<h4>{{poster.title}}</h4>
+{% for posters in resource.meta.posters|batch(2,False) %}
+<div class="ym-grid linearize-level-2">
+ {% for poster in posters %}
+   <div class="ym-g50 ym-gl">
+     <div class="poster ym-clearfix">
+      <div class="ym-grid">
+      {% if poster %}
+      <div class="ym-g25 ym-gl">
+        <a href="/research_posters/{{poster.file}}"><img class="bordered" src="/research_posters/{{poster.image}}" alt="{{poster.title}}"/></a>
+      </div>
+      <div class="ym-g75 ym-gl">
+        <p><a href="/research_posters/{{poster.file}}">{{poster.title}}</a> : {{poster.authors}}</p>
+      </div>
+      {% endif %}
+      </div>
+     </div>
+   </div>
+{% endfor %}
+</div>
 {% endfor %}
 
 {% endblock %}

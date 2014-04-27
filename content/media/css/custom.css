@@ -36,11 +36,10 @@ div.poster {
   }
 
 div.poster h4 {
- float: left;
- display: block;
+ display: inline;
  font-size: 100%;
 }
 
 div.poster img {
-display: block;
+width: 80%;
 }
