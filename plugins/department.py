@@ -6,6 +6,28 @@ from datetime import datetime
 
 import sys
 import urllib
+import hashlib
+
+def vEvent(resource):
+    template = """
+BEGIN:VEVENT
+UID:{uid}
+DTSTART:{dtstart}
+DTEND:{dtend}
+SUMMARY:{summary}
+DESCRIPTION:{description}
+END:VEVENT
+"""
+    vtext = template.format(
+        dtstart = resource.meta.startdate.strftime("%Y%m%dT%H%M%S"),
+        dtend =  resource.meta.enddate.strftime("%Y%m%dT%H%M%S"),
+        uid = hashlib.md5(resource.url).hexdigest()+"@chicas",
+        summary = resource.meta.title,
+        description = resource.meta.description
+        )
+    
+    return vtext
+
 
 @environmentfilter
 def todateformat(env, value, verbose=False):
@@ -31,7 +53,8 @@ BEGIN VCALENDAR
 {0}
 END VCALENDAR
 """
-    cal_text = template.format(value.meta.start)
+    vev = vEvent(value)
+    cal_text = template.format(vev)
     base64_data = cal_text.encode("base64").replace("\n", "")
     cal_url = 'data:text/calendar;base64,{0}'.format(base64_data) 
     return cal_url
