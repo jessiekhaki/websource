@@ -9,6 +9,7 @@ publish:
 	hyde publish
 
 travis:
+	echo "StrictHostKeyChecking no" >> ~/.ssh/config
 	cd ..
 	git clone git@github.com:chicas-lancaster/chicas-lancaster.github.io.git
 	cd websource
