@@ -1,2 +1,5 @@
 language: python
 script: make travis
+env:
+  global:
+    secure: r4ntC8HBhlbagK/PwWt+W3y0h5YwXEYnJYMM1suAmm1SVNb1yiMyIqrXiaTZJvKrTvbXPfRmPxpZ/o6q/O6296pMErKg2PfkQHvoV7oiS5FEmb3LQ8NCtBXvPs42ucF6lP1EUre7D5WLKfk9ciS0k0ZmVfk9FjaekymTPTZf240=
