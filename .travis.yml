@@ -2,4 +2,4 @@ language: python
 script: make travis
 env:
   global:
-    secure: JiqjrVWTxRIi4nkthWjooNn/vTlSnsfCCswh06KGxAqfH8yL3dJqGDvDwdBbXl3tu3Hvg4ewZqY9QXoYxPdPeE2e43WM70Ms17gTs5vq7F8pGMAi5z1o1YLPb+eOt9Xo0Kw9ok93jsbvY8CaXn5MyTn3wmAkIheFef/bwmJgeW0=
+    secure: d/X2DBO7buM2ixuRArpmCJNm+BMwzFRRZPT8YbXULz1kL/ddmcmQdMBjZlbfUQeZSpnPGuCTqpL6/xKTZZlE7iWCMQo3jsKMp7qp2ptJNh4GdgVVGhIunmDecslfx9cDwij172RWHlfmUjfutq3BcNrPxmPwkX3GSlNgjaKXog8=
