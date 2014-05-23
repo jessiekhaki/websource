@@ -1,0 +1,34 @@
+---
+extends: flexigrid.j2
+title: Admin
+description: How to maintain this site
+---
+{% block main %}
+<h2>Change Requests</h2>
+<p>If you do not have editing permissions on the site, then log in to
+your github account and <a href="https://github.com/chicas-lancaster/websource/issues">submit a new issue</a>,
+Check the current issues first in case someone else has reported it.
+</p>
+<p>
+I'll be notified of new issues and will respond to them. You'll get a notification when the status changes.
+</p>
+<h2>Page Editing</h2>
+<p>
+If you do have permission to edit content, then the easiest way is via the github editor. Just go to
+the <a href="https://github.com/chicas-lancaster/websource">source site</a>, and find the page you want to edit.
+Use the github text editor, commit the change with an optional comment.
+</p>
+<p>
+The live site is not updated immediately, but should update within five minutes. If there is no update after 30 minutes, then
+<a href="https://github.com/chicas-lancaster/websource/issues">submit a new issue</a> with the details.
+</p>
+<p>To add new content, there is a "+" sign on the github page for each folder. Create a new page with the correct header metadata
+for your content (you need "extends", "title" and "description" for a plain page, for example). Check existing
+content for examples. Again it takes a few minutes for changes to go through to the live site.
+</p>
+<h2>Mistakes</h2>
+<p>All the content is versioned and history is kept, so mistakes can be rolled back. 
+You can <a href="https://github.com/chicas-lancaster/websource/issues">submit a new issue</a> if
+you can't do this yourself.
+</p>
+{% endblock main%}
