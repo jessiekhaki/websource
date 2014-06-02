@@ -17,7 +17,7 @@
 {% if res.meta.extends == "events.j2" and res.is_processable %}
 <tr data-start="{{res.meta.startdate.strftime("%Y-%m-%d")}}">
 <td>{{res.meta.startdate.strftime("%A, %d %B %Y") }}</td>
-<td><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</td>
+<td><a href="{{res.full_url}}">{{res.meta.title}} : {{res.meta.description}}</a></td>
 </tr>
 {% endif %}
 {% endfor %}
