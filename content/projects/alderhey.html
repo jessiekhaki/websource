@@ -13,14 +13,36 @@ map:  -2.898476278359631, 53.420175096345801
 links:
  - url: http://www.alderhey.co.uk/
    description: Alder Hey Hospital
+ - url: http://www.maths.lancs.ac.uk/~rowlings/Chicas/AlderHey/
+   description: Demo site with simulated data
 image:
  name: alderhey.png
  caption: Web site showing forecasted admissions with prediction intervals
 ---
+
 <p>
-This is all about predicting hospital admissions.
+Alder Hey Children's Hospital's existing method for forecasting
+admissions was based on admission counts in previous years - a bit
+like trying to predict tomorrow's weather based on the weather a year
+ago. We know it will be roughly right, but won't recognise that we
+have "hot spells" or "cold spells" of weather away from the norm that
+last a few days. Similarly, but for unknown reasons, admission numbers
+show fluctuations away from the simple forecast model the hospital was
+using.
+</p>
 
+<p>
+We constructed a statistical forecasting system that uses the
+historical data to get the average behaviour and modulates its
+predictions based on recent data, producing forecasts that are more
+accurate and have an associated measure of precision.
+</p>
 
+<p>
+The daily predictions are delivered via an interactive web site
+accessible to hospital staff only. You can view
+the <a href="http://www.maths.lancs.ac.uk/~rowlings/Chicas/AlderHey/">demo site</a>
+which uses simulated data only.
 </p>
 
 
