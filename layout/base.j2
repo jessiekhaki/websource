@@ -50,6 +50,8 @@
   {% block endhead %}{% endblock endhead %}
 </head>
 <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
+{% include "search.j2" %}
+
   {% block content %}
   <div id="container">
       {% block container %}
