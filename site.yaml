@@ -85,7 +85,7 @@ grouper:
            - name: phd
              description: "PhD Students"
            - name: visitor
-             description: "Visiting staff and students"
+             description: "Visiting Staff and Students"
            - name: former
              description: "Former Staff and Students"
 publisher:
