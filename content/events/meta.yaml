@@ -1,2 +1,0 @@
-extends: events.j2
-default_block: event
