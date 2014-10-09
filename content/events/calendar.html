@@ -1,0 +1,50 @@
+---
+extends: flexigrid.j2
+title: Calendar
+description: Diary Dates
+---
+{% block extrahead %}
+
+<link rel='stylesheet' href="{{media_url('/css/fullcalendar.css')}}" />
+
+{% endblock %}
+
+{% block main %}
+<h2>Calendar</h2>
+
+<div id="calendar">
+</div>
+
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}
+
+
+{% block footscripts %}
+<script src="{{media_url('/js/libs/jquery.min.js')}}"></script>
+<script src="{{media_url('/js/libs/moment.min.js')}}"></script>
+<script src="{{media_url('/js/libs/fullcalendar.min.js')}}"></script>
+<script type='text/javascript' src="{{media_url('/js/libs/gcal.js')}}"></script>
+<script>
+$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+events: {
+            url: 'https://www.google.com/calendar/feeds/e8j7bjqajiblsstfcc59iimss0%40group.calendar.google.com/public/basic',
+            className: 'gcal-event'
+        },
+header: {
+    left:   'title',
+    center: '',
+    right:  'today prev,next month basicWeek'
+}
+        // put your options and callbacks here
+    })
+
+});
+</script>
+{% endblock footscripts %}
