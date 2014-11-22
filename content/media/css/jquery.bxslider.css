@@ -188,16 +188,17 @@
 
 .bx-wrapper .bx-caption {
 	position: absolute;
-	bottom: 0;
+	top: 0;
 	left: 0;
 	background: #666\9;
 	background: rgba(80, 80, 80, 0.75);
-	width: 100%;
+	width: 62%;
+	font-size: 120%;
 }
 
 .bx-wrapper .bx-caption span {
 	color: #fff;
-	font-family: Arial;
+	font-family: "Roboto Slab",Arial,Helvetica,sans-serif;
 	display: block;
 	font-size: .85em;
 	padding: 10px;
