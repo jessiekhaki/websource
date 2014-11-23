@@ -93,3 +93,7 @@ div .project .title {
 div .project .description{
     color: black;
 }
+
+div .project img {
+    float: right;
+}

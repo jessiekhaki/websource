@@ -1,20 +1,27 @@
 ---
 extends: flexigridisotope.j2
-default_block: main
 title: Chicas Projects
 description: List of projects
 ---
-
+{% block main %}
 <h2>Current Projects</h2>
-
 <div id="projects">
 {% for res in resource.node.walk_resources_sorted_by_titling() %}
 {% if res.meta.extends == "project.j2" and res.is_processable and not res.meta.finished %}
+
+{% set tags=[] %}
+{% if res.meta.tags %}
+{% for tag in res.meta.tags %}
+{% do tags.append("tag-"+tag) %}
+{% endfor %}
+{% endif %}
+
 <a href="{{res.full_url}}">
-<div class="project">
+<div class="project {{tags|join(' ')}}">
+
 <span class="title">{{res.meta.title}}</span>
 {% if res.meta.image %}
-<img width="80" style="float:right" src="{{media_url('/images/content/page_'+res.meta.image.name)}}">
+<img  src="{{media_url('/images/content/icon_'+res.meta.image.name)}}">
 {% endif %}
 <span class="description">{{res.meta.description}}</span>
 </div>
@@ -32,3 +39,29 @@ description: List of projects
 {% endif %}
 {% endfor %}
 </ul>
+{% endblock %}
+
+{% block sidebar %}
+<h2>Tags</h2>
+{% set tags=[] %}
+{% for res in resource.node.walk_resources_sorted_by_titling() %}
+{% if res.meta.extends == "project.j2" and res.is_processable and not res.meta.finished %}
+
+{% if res.meta.tags %}
+{% for tag in res.meta.tags %}
+{% if tag in tags %}
+{% else %}
+{% do tags.append(tag) %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% endif %}
+{% endfor %}
+
+<ul>
+{% for tag in tags|sort %}
+<li onclick="javascript:$('#projects').isotope({filter: '.tag-{{tag}}'})">{{tag}}</li>
+{% endfor %}
+</ul>
+{% endblock %}
