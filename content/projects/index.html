@@ -1,21 +1,36 @@
 ---
-extends: flexigrid.j2
-default_block: main
+extends: flexigridisotope.j2
 title: Chicas Projects
 description: List of projects
 ---
-
+{% block main %}
 <h2>Current Projects</h2>
-
-<ul>
+<div id="projects">
 {% for res in resource.node.walk_resources_sorted_by_titling() %}
 {% if res.meta.extends == "project.j2" and res.is_processable and not res.meta.finished %}
-<li><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
+
+{% set tags=[] %}
+{% if res.meta.tags %}
+{% for tag in res.meta.tags %}
+{% do tags.append("tag-"+tag) %}
+{% endfor %}
+{% endif %}
+
+<a href="{{res.full_url}}">
+<div class="project {{tags|join(' ')}}">
+
+<span class="title">{{res.meta.title}}</span>
+{% if res.meta.image %}
+<img  src="{{media_url('/images/content/icon_'+res.meta.image.name)}}">
+{% endif %}
+<span class="description">{{res.meta.description}}</span>
+</div>
+</a>
 {% endif %}
 {% endfor %}
-</ul>
+</div>
 
-<h2>Finished Projects</h2>
+<h4>Finished Projects</h4>
 
 <ul>
 {% for res in resource.node.walk_resources_sorted_by_titling() %}
@@ -24,3 +39,43 @@ description: List of projects
 {% endif %}
 {% endfor %}
 </ul>
+{% endblock %}
+
+{% block sidebar %}
+{% set tags=[] %}
+{% for res in resource.node.walk_resources_sorted_by_titling() %}
+{% if res.meta.extends == "project.j2" and res.is_processable and not res.meta.finished %}
+
+{% if res.meta.tags %}
+{% for tag in res.meta.tags %}
+{% if tag in tags %}
+{% else %}
+{% do tags.append(tag) %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% endif %}
+{% endfor %}
+
+<form class="ym-form">
+
+<div class="ym-fbox">
+<h3>Filter By Tag</h3>
+      <div class="ym-fbox-wrap">
+	<div>
+	  <input class="tagfilter" type="radio" name="tags" id="all" data-tag="" checked="yes"/>
+	  <label for="all">(all projects)</label>
+	</div>
+	{% for tag in tags|sort %}
+	<div>
+	  <input class="tagfilter" type="radio" name="tags" id="tag-{{tag}}" data-tag=".tag-{{tag}}"/>
+	  <label for="tag-{{tag}}">{{tag}}</label>
+	</div>
+	{% endfor %}
+      </div>
+</div>
+</div>
+{% endblock %}
+
+<!--onclick="javascript:$('#projects').isotope({filter: '.tag-{{tag}}'})">{{tag}}</li>  -->
