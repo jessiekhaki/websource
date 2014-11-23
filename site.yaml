@@ -54,6 +54,9 @@ meta:
     author: Barry Rowlingson
 
 sorter:
+    titling:
+        attr:
+            - meta.title
     alpha:
         attr:
             - name

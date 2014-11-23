@@ -8,7 +8,7 @@ description: List of projects
 <h2>Current Projects</h2>
 
 <ul>
-{% for res in resource.node.walk_resources() %}
+{% for res in resource.node.walk_resources_sorted_by_titling() %}
 {% if res.meta.extends == "project.j2" and res.is_processable and not res.meta.finished %}
 <li><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
 {% endif %}
@@ -18,7 +18,7 @@ description: List of projects
 <h2>Finished Projects</h2>
 
 <ul>
-{% for res in resource.node.walk_resources() %}
+{% for res in resource.node.walk_resources_sorted_by_titling() %}
 {% if res.meta.extends == "project.j2" and res.is_processable and res.meta.finished %}
 <li><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
 {% endif %}
