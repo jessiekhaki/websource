@@ -33,15 +33,6 @@ description: List of projects
 {% endfor %}
 </div>
 
-<h4>Finished Projects</h4>
-
-<ul>
-{% for res in resource.node.walk_resources_sorted_by_titling() %}
-{% if res.meta.extends == "project.j2" and res.is_processable and res.meta.finished %}
-<li><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
-{% endif %}
-{% endfor %}
-</ul>
 {% endblock %}
 
 {% block sidebar %}
@@ -78,6 +69,16 @@ description: List of projects
 	{% endfor %}
       </div>
 </div>
+</div>
+<div class="ym-wbox">
+<h4>Finished Projects</h4>
+<ul>
+{% for res in resource.node.walk_resources_sorted_by_titling() %}
+{% if res.meta.extends == "project.j2" and res.is_processable and res.meta.finished %}
+<li><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</li>
+{% endif %}
+{% endfor %}
+</ul>
 </div>
 {% endblock %}
 
