@@ -21,8 +21,9 @@ var $container = $("#projects");
 // init
 $container.isotope({
   // options
-  itemSelector: '.project',
-  layoutMode: 'masonry'
+  itemSelector: '.projectbox',
+  layoutMode: 'masonry',
+  masonry: { gutter: 10 }
 });
 
 $('input.tagfilter').on('change', function(){

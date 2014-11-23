@@ -77,17 +77,22 @@ div #projects {
     padding-bottom: 2em;
 }
 
+div.projectbox {
+    width: 32%;
+    padding: 0;
+    padding-bottom: 0.5em;
+    margin: 0;
+}
+
 div .project {
     border: 1px solid #B5121B;
     border-bottom-right-radius: 1em;
-    width: 30%;
     padding: 0.5em;
-    margin: 0.2em;
     }
 
 @media screen and (max-width: 620px) {
-  /* 10 columns for larger screens */
-  div .project { width: 80%; }
+    /* small screens, two across */
+  div .projectbox { width: 44%; }
 }
 div .project .title {
     font-family: "Roboto Slab",Arial,Helvetica,sans-serif;

@@ -16,16 +16,19 @@ description: List of projects
 {% endfor %}
 {% endif %}
 
+<div class="projectbox {{tags|join(' ')}}">
 <a href="{{res.full_url}}">
 <div class="project {{tags|join(' ')}}">
 
-<span class="title">{{res.meta.title}}</span>
+<div class="title">{{res.meta.title}}</div>
 {% if res.meta.image %}
-<img  src="{{media_url('/images/content/icon_'+res.meta.image.name)}}">
+<img  class="" src="{{media_url('/images/content/icon_'+res.meta.image.name)}}">
 {% endif %}
-<span class="description">{{res.meta.description}}</span>
+<div class="description">{{res.meta.description}}</div>
+<div style="clear: both;"></div>
 </div>
 </a>
+</div>
 {% endif %}
 {% endfor %}
 </div>
