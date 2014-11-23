@@ -25,6 +25,11 @@ $container.isotope({
   layoutMode: 'masonry'
 });
 
+$('input.tagfilter').on('change', function(){
+    var data = $(this).data('tag');
+    $('#projects').isotope({filter: data});
+ });
+
 });
 </script>
 {% endblock %}

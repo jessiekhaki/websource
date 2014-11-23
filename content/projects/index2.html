@@ -30,7 +30,7 @@ description: List of projects
 {% endfor %}
 </div>
 
-<h2>Finished Projects</h2>
+<h4>Finished Projects</h4>
 
 <ul>
 {% for res in resource.node.walk_resources_sorted_by_titling() %}
@@ -42,7 +42,6 @@ description: List of projects
 {% endblock %}
 
 {% block sidebar %}
-<h2>Tags</h2>
 {% set tags=[] %}
 {% for res in resource.node.walk_resources_sorted_by_titling() %}
 {% if res.meta.extends == "project.j2" and res.is_processable and not res.meta.finished %}
@@ -59,9 +58,24 @@ description: List of projects
 {% endif %}
 {% endfor %}
 
-<ul>
-{% for tag in tags|sort %}
-<li onclick="javascript:$('#projects').isotope({filter: '.tag-{{tag}}'})">{{tag}}</li>
-{% endfor %}
-</ul>
+<form class="ym-form">
+
+<div class="ym-fbox">
+<h3>Filter By Tag</h3>
+      <div class="ym-fbox-wrap">
+	<div>
+	  <input class="tagfilter" type="radio" name="tags" id="all" data-tag="" checked="yes"/>
+	  <label for="all">(all projects)</label>
+	</div>
+	{% for tag in tags|sort %}
+	<div>
+	  <input class="tagfilter" type="radio" name="tags" id="tag-{{tag}}" data-tag=".tag-{{tag}}"/>
+	  <label for="tag-{{tag}}">{{tag}}</label>
+	</div>
+	{% endfor %}
+      </div>
+</div>
+</div>
 {% endblock %}
+
+<!--onclick="javascript:$('#projects').isotope({filter: '.tag-{{tag}}'})">{{tag}}</li>  -->

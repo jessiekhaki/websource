@@ -73,6 +73,10 @@ header a:hover {background: white}
     width: 75%;
 }
 
+div #projects {
+    padding-bottom: 2em;
+}
+
 div .project {
     border: 1px solid #B5121B;
     border-bottom-right-radius: 1em;
