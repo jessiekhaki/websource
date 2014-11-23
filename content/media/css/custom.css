@@ -94,6 +94,10 @@ div .project .title {
     color: #B5121B;
 }
 
+div .project:hover {
+    background-color: rgba(255, 241, 241, 1);
+}
+
 div .project .description{
     color: black;
 }
