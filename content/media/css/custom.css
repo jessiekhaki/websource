@@ -49,3 +49,26 @@ header a:hover {background: white}
 #headerbox {padding: 0.5em 1em 0.5em 1em}
 
 #threebox {border-bottom-right-radius: 40px}
+
+#maplink {
+    position:relative;
+    height: 150px;
+}
+
+#locationthumb {
+    border-bottom-right-radius: 2em;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width: 100%}
+
+#locationcaption {
+    border-bottom-right-radius: 1em;
+    background-color: rgba(255,255,255,0.5);
+    top: 0.5em;
+    left: 0.5em;
+    
+    position: absolute;
+    z-index: 100;
+    width: 75%;
+}
