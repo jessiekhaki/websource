@@ -72,3 +72,24 @@ header a:hover {background: white}
     z-index: 100;
     width: 75%;
 }
+
+div .project {
+    border: 1px solid #B5121B;
+    border-bottom-right-radius: 1em;
+    width: 30%;
+    padding: 0.5em;
+    margin: 0.2em;
+    }
+
+@media screen and (max-width: 620px) {
+  /* 10 columns for larger screens */
+  div .project { width: 80%; }
+}
+div .project .title {
+    font-family: "Roboto Slab",Arial,Helvetica,sans-serif;
+    color: #B5121B;
+}
+
+div .project .description{
+    color: black;
+}
