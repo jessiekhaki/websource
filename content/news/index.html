@@ -12,7 +12,7 @@ description: Updates from the group
 
 {% for res in items|sort(reverse=True, attribute="meta.release") %}
 {% if res.meta.extends == "news.j2" and res.is_processable %}
-<tr><td>{{res.meta.releasedate.strftime("%A, %d %B  %Y")}}</td><td><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</td></tr>
+<tr><td>{{res.meta.releasedate.strftime("%A, %e %B  %Y")}}</td><td><a href="{{res.full_url}}">{{res.meta.title}}</a> : {{res.meta.description}}</td></tr>
 {% endif %}
 {% endfor %}
 </table>

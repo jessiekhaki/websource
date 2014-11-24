@@ -2,11 +2,13 @@
 
 {% block sidebar %}
 <h4>Latest News</h4>
- <p>
-We recently deployed a real-time admissions forecasting system for a leading children's hospital. Our statistical
-methods perform better than existing predictive methods and help in efficient resource planning.</p>
-<p><a class="ym-button ym-next" href="news/hospital_predictions_deployed.html">Read More</a></p>
-
+{% set latest = resource.node.walk_resources()|selectattr("is_processable")|selectattr("meta.release")|sort(reverse=True, attribute="meta.release")|first() %}
+<h5>{{latest.meta.title}}</h5>
+<h6>{{latest.meta.releasedate.strftime("%e %B, %Y")}}</h6>
+<p>
+{{latest.meta.description}}
+</p>
+<p><a class="ym-button ym-next" href="{{latest.url}}">Read more...</a></p>
 {% endblock %}
 
 {% block extrahead %}
