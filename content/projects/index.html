@@ -24,7 +24,9 @@ description: List of projects
 {% if res.meta.image %}
 <img  class="" src="{{media_url('/images/content/icon_'+res.meta.image.name)}}">
 {% endif %}
-<div class="description">{{res.meta.description}}</div>
+<div class="description">
+<p>{{res.meta.description}}</p>
+</div>
 <div style="clear: both;"></div>
 </div>
 </a>
