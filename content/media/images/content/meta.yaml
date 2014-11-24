@@ -1,4 +1,9 @@
  thumbnails:
+  - width: 80
+    prefix: icon_
+    include:
+    - '*.png'
+    - '*.jpg'
   - width: 200
     prefix: page_
     include:
