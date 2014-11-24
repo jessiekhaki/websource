@@ -15,15 +15,17 @@ This is the default side bar
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.2.min.js">\x3C/script>')</script>
 
 <script src="/media/js/libs/isotope.pkgd.min.js"></script>
+<script src="/media/js/libs/imagesloaded.pkgd.min.js"></script>
 <script>
 $(document).ready(function(){
-var $container = $("#projects");
+var $container = $("#projects").imagesLoaded( function(){
 // init
 $container.isotope({
   // options
   itemSelector: '.projectbox',
   layoutMode: 'masonry',
   masonry: { gutter: 10 }
+});
 });
 
 $('input.tagfilter').on('change', function(){
