@@ -29,9 +29,28 @@ $container.isotope({
 });
 
 $('input.tagfilter').on('change', function(){
-    var data = $(this).data('tag');
-    $('#projects').isotope({filter: data});
+    var data = $(this).data('tag').slice(4);
+    location.hash=data;
+    if( data == "" ){
+        $('#projects').isotope({filter: ""});
+    }else{
+        $('#projects').isotope({filter: ".tag-"+data});
+    }
  });
+
+window.onpopstate = function(event){
+ var iid;
+ if(location.hash == ""){
+   $('#projects').isotope({filter: ""});
+   iid = "all";
+ }else{
+   $('#projects').isotope({filter: ".tag-"+location.hash.slice(1)});
+   iid = "tag-"+location.hash.slice(1);
+ };
+ $('input#'+iid).prop("checked",true);
+
+};
+
 
 });
 </script>

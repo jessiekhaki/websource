@@ -65,7 +65,7 @@ description: List of projects
 	</div>
 	{% for tag in tags|sort %}
 	<div>
-	  <input class="tagfilter" type="radio" name="tags" id="tag-{{tag}}" data-tag=".tag-{{tag}}"/>
+	  <input class="tagfilter" type="radio" name="tags" id="tag-{{tag}}" data-tag="tag-{{tag}}"/>
 	  <label for="tag-{{tag}}">{{tag}}</label>
 	</div>
 	{% endfor %}
