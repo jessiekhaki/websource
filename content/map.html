@@ -47,9 +47,7 @@ $.getJSON("{{media_url('/json/map.json')}}", function(data) {
 	}
     });
     POIs.addTo(map);
-    
-    console.log("added points");
-    
+        
     var Geodesic = L.geodesic([], {
 	weight: 3, 
 	opacity: 0.5,
