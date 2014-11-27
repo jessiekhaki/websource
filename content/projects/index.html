@@ -61,12 +61,12 @@ description: List of projects
       <div class="ym-fbox-wrap">
 	<div>
 	  <input class="tagfilter" type="radio" name="tags" id="all" data-tag="" checked="yes"/>
-	  <label for="all">(all projects)</label>
+	  <label for="all"><span class="tag label">(all projects)</span></label>
 	</div>
 	{% for tag in tags|sort %}
-	<div>
+	<div title="Show projects tagged {{tag}}">
 	  <input class="tagfilter" type="radio" name="tags" id="tag-{{tag}}" data-tag="tag-{{tag}}"/>
-	  <label for="tag-{{tag}}">{{tag}}</label>
+	  <label for="tag-{{tag}}"><span class="tag label">{{tag}}</span></label>
 	</div>
 	{% endfor %}
       </div>
