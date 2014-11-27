@@ -28,6 +28,11 @@ $container.isotope({
 });
 });
 
+var $tbs = $("#tagboxes");
+$tbs.isotope({
+	itemSelector: '.tagbox'
+});
+
 $('input.tagfilter').on('change', function(){
     var data = $(this).data('tag').slice(4);
     location.hash=data;

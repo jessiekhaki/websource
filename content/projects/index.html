@@ -58,13 +58,13 @@ description: List of projects
 
 <div class="ym-fbox">
 <h3>Filter By Tag</h3>
-      <div class="ym-fbox-wrap">
-	<div>
+      <div class="ym-fbox-wrap" style="width:100%" id="tagboxes">
+	<div class="tagbox">
 	  <input class="tagfilter" type="radio" name="tags" id="all" data-tag="" checked="yes"/>
 	  <label for="all"><span class="tag label">(all projects)</span></label>
 	</div>
 	{% for tag in tags|sort %}
-	<div title="Show projects tagged {{tag}}">
+	<div title="Show projects tagged {{tag}}" class="tagbox">
 	  <input class="tagfilter" type="radio" name="tags" id="tag-{{tag}}" data-tag="tag-{{tag}}"/>
 	  <label for="tag-{{tag}}"><span class="tag label">{{tag}}</span></label>
 	</div>

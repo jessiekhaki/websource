@@ -19,16 +19,23 @@
 {% endif %}
 
 {% if resource.meta.email %}
+<p>
 Email: <a href="mailto:{{resource.meta.email}}">{{resource.meta.email}}</a>
+</p>
 {% endif %}
 
 {% set projectnode = resource.node.root.node_from_relative_path("projects/") %}
-{% set all = [] %}
+{% set current = [] %}
+{% set finished = [] %}
 {% for project in projectnode.resources %}
 {% for person in project.meta.people %}
 {% if person+".html" == resource.name %}
 
-{% do all.append(project) %}
+{% if project.meta.finished %}
+{% do finished.append(project) %}
+{% else %}
+{% do current.append(project) %}
+{% endif %}
 
 {% endif %}
 
@@ -36,10 +43,19 @@ Email: <a href="mailto:{{resource.meta.email}}">{{resource.meta.email}}</a>
 {% endfor %}
 
 
-{% if all %}
-<h2>Projects</h2>
+{% if current %}
+<h2>Current Projects</h2>
 <ul>
-{% for proj in all %}
+{% for proj in current %}
+<li><a href="{{proj.full_url}}">{{proj.meta.title}}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if finished %}
+<h2>Finished Projects</h2>
+<ul>
+{% for proj in finished %}
 <li><a href="{{proj.full_url}}">{{proj.meta.title}}</a></li>
 {% endfor %}
 </ul>
