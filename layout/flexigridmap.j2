@@ -3,7 +3,10 @@
 {% block sidebar %}
 <h4>Latest News</h4>
 {% set latest = resource.node.walk_resources()|selectattr("is_processable")|selectattr("meta.release")|sort(reverse=True, attribute="meta.release")|first() %}
-<h5>{{latest.meta.title}}</h5>
+{% if latest.meta.image %}
+<img class="newspic" src="{{media_url('/images/news/icon_'+latest.meta.image.name)}}">
+{% endif %}
+<h5><a href="{{latest.url}}">{{latest.meta.title}}</a></h5>
 <h6>{{latest.meta.releasedate.strftime("%e %B, %Y")}}</h6>
 <p>
 {{latest.meta.description}}

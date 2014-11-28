@@ -3,8 +3,27 @@
 {% block main %}
 <h2>{{ resource.meta.title }}</h2>
 <h3>{{resource.meta.releasedate.strftime("%e %B, %Y")}}</h3>
+{% if resource.meta.image %}
+<div class="pagepic">
+{% if resource.meta.image.caption %}
+<a href="{{media_url('/images/news/box_'+resource.meta.image.name)}}" rel="lightbox" title="{{resource.meta.image.caption}}">
+<img src="{{media_url('/images/news/page_'+resource.meta.image.name)}}">
+<br/>{{resource.meta.image.caption}}
+</a>
+{% else %}
+<img src="{{media_url('/images/news/page_'+resource.meta.image.name)}}">
+{% endif %}
+</div>
+{% endif %}
 {% block news%}
 {% endblock %}
+{% endblock %}
 
-
+{% block extrahead %}
+ <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to loca
+l if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.5.1.min.js">\x3C/script>')</script>
+<script src="/media/js/libs/slimbox2.js"></script>
+<link rel="stylesheet" href="/media/css/slimbox/slimbox2.css" type="text/css" media="screen" />
 {% endblock %}
