@@ -38,9 +38,9 @@ The <a href="/map.html">project map</a> shows our global connections.
     <article class="ym-g33 ym-gr">
       <div class="ym-gbox-right secondary">
 	<h4>Tags</h4>
-
-{% for tag,meta in site.tagger.tags.to_dict()|dictsort %}
-<span class="tag label"><a href="tags.html#{{tag}}">{{tag}}</a></span>
+{% for tag,meta in site.tagger.tagdict|dictsort %}
+<span class="tag label quant-{{meta.klass}}"><a href="tags.html#{{tag}}">{{tag}}
+</a></span>
 {% endfor %}
       </div>
     </article>

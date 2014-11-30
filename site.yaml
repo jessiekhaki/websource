@@ -15,6 +15,7 @@ plugins:
     - hyde.ext.plugins.text.TextlinksPlugin
     - hyde.ext.plugins.images.ImageThumbnailsPlugin
     - plugins.department.DepartmentPlugin
+    - plugins.supertags.SupertagsPlugin
 context:
     data:
         menu:
