@@ -1,19 +1,27 @@
 $(document).ready(function() {
 
-  function jQuery21101801362546152825_1417645059321(){
-  var x=1;
-  };
+    var templates = {
+	eventList: $('<div class="eventlist">'),
+	eventItem: $('<div class="event"><div class="summary"><a href=""></a></div><div class="start"/></div>')
+    };
 
     var now = new Date().toISOString();
     
     var api="AIzaSyAB1Jd-Jf3U-R84BJzJAPTIYZZmM1sqtjs";
-    var getOne = "https://www.googleapis.com/calendar/v3/calendars/e8j7bjqajiblsstfcc59iimss0%40group.calendar.google.com/events?callback=?&maxResults=1&timeMin="+now+"&orderBy=startTime&singleEvents=true&key="+api;
-
-  var url="https://www.googleapis.com/calendar/v3/calendars/e8j7bjqajiblsstfcc59iimss0@group.calendar.google.com/events?callback=?&key=AIzaSyAB1Jd-Jf3U-R84BJzJAPTIYZZmM1sqtjs&timeMin=2014-11-29T00%3A00%3A00%2B00%3A00&timeMax=2015-01-12T00%3A00%3A00%2B00%3A00&singleEvents=true&maxResults=9999&_=1417645059322";
-
+    var getOne = "https://www.googleapis.com/calendar/v3/calendars/e8j7bjqajiblsstfcc59iimss0%40group.calendar.google.com/events?callback=?&maxResults=4&timeMin="+now+"&orderBy=startTime&singleEvents=true&key="+api;
 
     $.getJSON(getOne , function(json) {
-	var event = json.items[0];
-        }
+	var events = json.items;
+	var list = templates.eventList.clone();
+	$.each(events, function(){
+	    var e = templates.eventItem.clone();
+	    e.find("a").text(this.summary).attr("href",this.htmlLink);
+	    e.find(".start").text(this.start.dateTime).end();
+	    list.append(e);
+	});
+	$("#events").append(list);
+	// get event.object[0].summary, htmlLink,start.dateTime
+	
+    }
 	     );
 });

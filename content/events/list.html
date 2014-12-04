@@ -1,5 +1,17 @@
-<script src="../projects/spread/js/jquery-1.4.4.min.js"></script>
+---
+extends: flexigrid.j2
+title: Event List
+description: Upcoming events
+---
+{% block main %}
+<h2>Event List</h2>
+<div id="events">
+</div>
 
-<h1>Test</h1>
+{% endblock %}
+{% block footscripts %}
+<script src="{{media_url('/js/libs/jquery.min.js')}}"></script>
+
 <script src="run.js"></script>
 
+{% endblock %}
