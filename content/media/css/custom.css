@@ -166,4 +166,23 @@ div .project p {
 }
 
 
+div .eventlist {
+   
+}
+div .eventlist .event {
+    border: 1px solid #B5121B;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-bottom-right-radius: 1em;
+}
+div .eventlist h3.summary {
+    padding-bottom: 0.5em;
+    margin-bottom: 0em;
+}
+div .eventlist .start {
+    margin-bottom: 0.5em;
+}
+div .eventlist .description {
+ 
+}
 

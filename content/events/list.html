@@ -1,17 +1,20 @@
 ---
 extends: flexigrid.j2
-title: Event List
+title: Upcoming Events
 description: Upcoming events
 ---
 {% block main %}
-<h2>Event List</h2>
+<h2>Upcoming Events</h2>
+
 <div id="events">
 </div>
 
 {% endblock %}
 {% block footscripts %}
 <script src="{{media_url('/js/libs/jquery.min.js')}}"></script>
-
 <script src="run.js"></script>
+{% endblock %}
 
+{% block sidebar %}
+{% include "eventsidebar.j2" %}
 {% endblock %}
