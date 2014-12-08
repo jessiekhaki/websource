@@ -38,7 +38,8 @@ class SupertagsPlugin(MetaPlugin):
                 if resource.source_file.is_text and not resource.simple_copy:
                     self.__read_resource__(resource, resource.source_file.read_all())
                 if hasattr(resource.meta,"tags"):
-                    print "got tags ",str(resource)
+                    pass
+                    #print "got tags ",str(resource)
         counts = []
         for k,v in self.site.tagger.tags:
             v.set_expando("count", len(v.resources))

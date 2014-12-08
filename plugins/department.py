@@ -105,12 +105,12 @@ class DepartmentPlugin(MetaPlugin):
                 if resource.source_file.is_text and not resource.simple_copy:
                     self.__read_resource__(resource, resource.source_file.read_all())
                 if hasattr(resource.meta,"start"):
-                    print "setting start for ",str(resource)
+                    #print "setting start for ",str(resource)
                     resource.meta.startdate=todatetime(resource.meta.start)
                 if hasattr(resource.meta,"end"):
                     resource.meta.enddate=todatetime(resource.meta.end)
                 if hasattr(resource.meta,"release"):
-                    print resource.meta.release
+                    #print "release",resource.meta.release
                     resource.meta.releasedate=todatetime(resource.meta.release)
 
     def site_complete(self):
