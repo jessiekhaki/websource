@@ -13,6 +13,12 @@ description: Upcoming events
 {% block footscripts %}
 <script src="{{media_url('/js/libs/jquery.min.js')}}"></script>
 <script src="run.js"></script>
+<script>
+$(document).ready(function(){
+  getN(10,"#events");
+});
+
+</script>
 {% endblock %}
 
 {% block sidebar %}
