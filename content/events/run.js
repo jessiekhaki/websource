@@ -27,7 +27,7 @@ var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturda
 
 var templates = {
     eventList: $('<div class="eventlist">'),
-    eventItem: $('<div class="event"><h3 class="summary"><a href=""></a></h3><div class="start"><span class="when"/><span class="where"/></div><div class="description"></div></div>'),
+    eventItem: $('<div class="event"><h3 class="summary"><a href=""></a></h3><div class="start"><span class="when"/> <span class="where"/></div><div class="description"></div></div>'),
     upcomingBox: $('<div class="upcoming"><h4>Coming Next...</h4></div>'),
     upcomingItem: $('<div class="event"><h6 class="when"/><h5 class="summary"><a href=""></a></h5><p class="description"></p><div class="where"/></div>')
 };
@@ -71,9 +71,9 @@ getN = function(n, root, wrapper, item){
 	    var when = getWhen(this);
 	    var where;
 	    if(this.location){
-		where = " ("+this.location+")";
+		where = this.location;
 	    }else{
-		where = "";
+		where = " ";
 	    };
 	    e.find("a").text(this.summary).attr("href",this.htmlLink).end()
 		.find(".when").text(when).end()

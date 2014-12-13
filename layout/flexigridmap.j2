@@ -1,6 +1,7 @@
 {% extends "flexigrid.j2" %}
 
 {% block sidebar %}
+<div class="newsbox">
 <h4>Latest News</h4>
 {% set latest = resource.node.walk_resources()|selectattr("is_processable")|selectattr("meta.release")|sort(reverse=True, attribute="meta.release")|first() %}
 {% if latest.meta.image %}
@@ -11,6 +12,7 @@
 <p>
 {{latest.meta.description}}
 </p>
+</div>
 <hr />
 <div id="nextevent"></div>
 {% endblock %}
