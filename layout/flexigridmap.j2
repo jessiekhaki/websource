@@ -13,8 +13,6 @@
 </p>
 <hr />
 <div id="nextevent"></div>
-<h4>Upcoming Event</h4>
-<p>This is the description</p>
 {% endblock %}
 
 {% block extrahead %}
@@ -39,7 +37,7 @@ $(document).ready(
        pause: 6000,
        pager: false,
        auto: true});
-    getN(1,"#nextevent");
+    getN(1,"#nextevent","upcomingBox","upcomingItem");
 }
 );
 </script>
