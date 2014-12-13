@@ -1,4 +1,16 @@
-    
+(function() {
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    Date.prototype.getMonthName = function() {
+        return months[ this.getMonth() ];
+    };
+    Date.prototype.getDayName = function() {
+        return days[ this.getDay() ];
+    };
+})();
+  
 pad = function(v){
     if(v<9){
 	return "0"+v;
@@ -7,18 +19,30 @@ pad = function(v){
     };
 };
 
-templates = {
+var monthNames = [ "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December" ];
+
+var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+
+var templates = {
     eventList: $('<div class="eventlist">'),
     eventItem: $('<div class="event"><h3 class="summary"><a href=""></a></h3><div class="start"><span class="when"/><span class="where"/></div><div class="description"></div></div>'),
     upcomingBox: $('<div class="upcoming"><h4>Coming Next...</h4></div>'),
-    upcomingItem: $('<div class="event"><h6 class="when"/><h5 class="summary"><a href=""></a></h5><p class="description"></p><h6 class="where"/></div>')
+    upcomingItem: $('<div class="event"><h6 class="when"/><h5 class="summary"><a href=""></a></h5><p class="description"></p><div class="where"/></div>')
 };
+
+dateFormat = function(d){
+    return d.getDate() + " " + d.getMonthName() + ", " + d.getFullYear();
+}
 
 getWhen = function(v){
     starter=v.start;
     if(starter.date){
-	var startString = new Date(starter.date).toDateString();
-	var endString = new Date(v.end.date).toDateString();
+	var start = new Date(starter.date);
+	var end = new Date(v.end.date);
+	var startString = dateFormat(start);
+	var endString = dateFormat(end);
 	if(startString != endString){
 	    when = startString + " - " + endString;
 	}else{
@@ -26,7 +50,7 @@ getWhen = function(v){
 	};
     }else{
 	var when = new Date(starter.dateTime);
-	when = when.toDateString() + " " + when.getHours() + ":" + pad(when.getMinutes());
+	when = dateFormat(when) + " " + when.getHours() + ":" + pad(when.getMinutes());
     };
     return when;
 };
