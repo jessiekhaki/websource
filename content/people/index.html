@@ -1,25 +1,30 @@
 ---
-extends: flexigrid.j2
+extends: flexigridisotopepeople.j2
 title: People
 description: List of CHICAS people
 ---
 {% block main %}
 <h2>Personnel</h2>
+<div id="peoplegroups">
 {% for grp, res_walker in site.content.walk_status_groups() %}
 {% for res in res_walker %}
 
 {% if loop.first %}
+<div class="peoplegroup">
 <h3>{{ grp.description }}</h3>
 <ul>
 {% endif %}
   <li><a href="{{res.full_url}}">{{ res.meta.title }}</a></li>
 {% if loop.last %}
 </ul>
+</div>
 {% endif %} 
 {% endfor %}
 
-
 {% endfor %}
+
+</div>
+
 {% endblock %}
 
 {% block sidebar %}
