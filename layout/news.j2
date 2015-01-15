@@ -2,7 +2,6 @@
 
 {% block main %}
 <h2>{{ resource.meta.title }}</h2>
-<h3>{{resource.meta.releasedate.strftime("%e %B, %Y")}}</h3>
 {% if resource.meta.image %}
 <div class="pagepic">
 {% if resource.meta.image.caption %}
@@ -17,6 +16,8 @@
 {% endif %}
 {% block news%}
 {% endblock %}
+<hr/>
+<p class="newsdate">Updated: {{resource.meta.releasedate.strftime("%A %e %B, %Y")}}</p>
 {% endblock %}
 
 {% block extrahead %}
