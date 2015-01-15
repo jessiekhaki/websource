@@ -90,8 +90,10 @@ grouper:
              description: "PhD Students"
            - name: visitor
              description: "Visiting Staff and Students"
+           - name: intern
+             description: "Internships"
            - name: former
-             description: "Former Staff and Students"
+             description: "Former Staff, Students, Visitors"
 publisher:
     github:
         type: hyde.ext.publishers.dvcs.Git
