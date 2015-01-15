@@ -7,7 +7,7 @@
 {% if latest.meta.image %}
 <img class="newspic" src="{{media_url('/images/news/icon_'+latest.meta.image.name)}}">
 {% endif %}
-<h6 class="newsdate">{{latest.meta.releasedate.strftime("%e %B, %Y")}}</h6>
+<!-- h6 class="newsdate">{{latest.meta.releasedate.strftime("%e %B, %Y")}}</h6-->
 <h5><a href="{{latest.url}}">{{latest.meta.title}}</a></h5>
 <p>
 {{latest.meta.description}}
