@@ -1,0 +1,111 @@
+---
+title: NHS Prescribing Data Releases Confirm Earlier Work
+description: A year of prescribing data from the NHS has
+ shown the same pattern as published in our BMJ Open
+ paper.
+people:
+ - rowlings
+ - diggle
+ - taylor
+release: 2015-03-30
+links:
+ - url: http://bmjopen.bmj.com/content/3/1/e001363.abstract?sid=6de939f1-9a9f-4f34-9fa0-79397eb34aa4
+   description: BMJ Open paper
+ - url: http://www.farrinstitute.org/centre/HeRC/63_About.html
+   description: Farr Institute @ HeRC
+image:
+   name: ritalin.jpg
+   caption: Ritalin is used in the treatment of ADHD
+---
+
+<p>
+In 2013 we published a <a href="http://bmjopen.bmj.com/content/3/1/e001363.abstract?sid=6de939f1-9a9f-4f34-9fa0-79397eb34aa4">paper in BMJ Open</a> describing the use of the newly-released GP prescribing data.
+This dataset contained monthly summaries of all NHS drug and appliance prescriptions for each GP practice,
+broken down by chemical formula. We looked at the first released month and discovered stark contrasts
+between adjacent areas of the country. For example, spending on Ritalin in the Wirral is about eight times the spend 
+in Liverpool, just across the Mersey estuary. 
+</p>
+<p>Our summary table from the paper shows the spending on Methyphenidate (Ritalin) in nine areas we defined in
+the paper, together with the national average.
+</p>
+
+<table frame="hsides" rules="groups" id="table-4" class="bordertable narrow">
+  <colgroup  span="1">
+    <col align="left"  class="table-left" span="1">
+    <col align="left"  class="table-left" span="1">
+  </colgroup>
+  <thead valign="bottom"  class="table-vbottom">
+    <tr >
+      <th align="left"  class="table-left" rowspan="1" colspan="1">Region</th>
+      <th align="left"  class="table-left" rowspan="1" colspan="1">Spend Per child (£)</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr >
+      <td >Liverpool</td>
+      <td >0.074</td>
+    </tr>
+    <tr >
+      <td >Wirral</td>
+      <td >0.604</td>
+    </tr>
+    <tr >
+      <td >West Midlands (East)</td>
+      <td >0.074</td>
+    </tr>
+    <tr >
+      <td >West Midlands (West)</td>
+      <td >0.304</td>
+    </tr>
+    <tr >
+      <td >London (North)</td>
+      <td >0.117</td>
+    </tr>
+    <tr >
+      <td >London (South)</td>
+      <td >0.170</td>
+    </tr>
+    <tr >
+      <td >North Kent</td>
+      <td >0.724</td>
+    </tr>
+    <tr >
+      <td >East Kent</td>
+      <td >0.118</td>
+    </tr>
+    <tr >
+      <td >South Kent</td>
+      <td >0.322</td>
+    </tr>
+    <tr >
+      <td >England average</td>
+      <td >0.207</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+Given this was from the first published month of the data, these figures could easily have come
+from under- or over-reporting errors from a newly implemented data processing stream. Since then,
+the data has been published monthly and at a more detailed level - the prescriptions are now broken 
+down by chemical and label, enabling researchers to compare spending on generic versus branded medicines.
+</p>
+<p>
+As part of a University internship scheme, we employed two recent graduates from our Computing Department
+to construct a system for collecting the published prescription data into a single database. From this we
+can easily query spending in a particular month for a given area on any drug.
+</p>
+
+<p>With the most recently available 13 months in the database, we recomputed total monthly spending per child 
+for the regions in the table. The number of children per GP practice was also updated from 
+more recent published data. The resulting plots show similar spending rate patterns to the table.
+</p>
+<img style="width:100%" src="ritalin.png" />
+<p>
+We still do not have an explanation for the extreme variation in Ritalin spending in the Wirral and North Kent.
+</p>
+<p>
+This work was done as part of the <a href="http://www.farrinstitute.org/centre/HeRC/63_About.html">Farr @ HeRC</a> 
+project on using routinely-collected healthcare data.
+</p>
+
