@@ -3,7 +3,6 @@ title: GPU accelerated epidemic forecasting
 description: Within-chain acceleration of MCMC using GPUs as likelihood co-processors
 people:
  - jewell
- - miller
 image:
  name: fmdOcc50.png
  caption: Predicted undetected infections on day 50 of the UK foot and mouth disease outbreak in 2001.
@@ -17,7 +16,7 @@ links:
  - url: http://en.wikipedia.org/wiki/CUDA
    description: Wikipedia on CUDA for GPGPU computing
  - url: http://github.com/chrism0dwk/infer
-   description: Github hosting of InFER: "Inference For Epidemic-related Risk"
+   description: Github hosting of InFER.
 ---
 <p>
 Bayesian analysis for epidemics currently represents the gold standard for fitting dynamical models of disease processes to observed data.  The development of reversible jump MCMC technology over the past 15 years has provided the opportunity to use Bayesian model fitting during an epidemic to provide real-time forecasts of disease risk.  This is able to inform adaptive control decisions and enable authorities to contain and extinguish outbreaks quickly and efficiently.  For large outbreaks, such as the UK foot and mouth outbreak in 2001, the repeated likelihood calculations required in MCMC means that inference has traditionally been too slow to make predictions in real time.  This project is exploring cutting-edge general purpose GPU methods to accelerate the likelihood calculations to a point where real-time inference is a possibility, and forecasts can be made within an overnight timeframe.
