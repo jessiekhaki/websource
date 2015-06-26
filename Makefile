@@ -6,6 +6,10 @@ force:
 	rm -f */*/*~
 	hyde gen -r
 
+serve:
+	(cd deploy ; python -m SimpleHTTPServer & )
+
+
 publish:
 	rm -f */*/*~
 	hyde gen -r
