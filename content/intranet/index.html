@@ -1,0 +1,84 @@
+---
+extends: flexigrid.j2
+title: Intranet
+description: Some information of internal interest
+---
+{% block main %}
+
+<h2>Intranet</h2>
+<p>
+This page lists things mostly of interest to Chicas staff
+and students. Note that this page is public, but not advertised.
+The services
+detailed won't be public.
+</p>
+
+<h3>Chicas Services</h3>
+<p>
+Most of these services will require a Chicas login. To request a
+Chicas login for yourself send an email to Barry with your email and
+ISS username. If you have a login already and want one for someone
+else then submit an issue on the Chicas IT helpdesk.
+</p>
+<ul>
+<li>The <a href="http://fhm-chicas-code.lancs.ac.uk/">Chicas Code</a> 
+gitlab development server.</li>
+<li>The <a href="http://fhm-chicas-code.lancs.ac.uk/chicas-staff/helpdesk/issues">Chicas IT Helpdesk</a> - add issues there.</a></li>
+</ul>
+<h3>Chicas Email</h3>
+<p>
+The Chicas mailing list
+is <a href="mailto:chicas@lists.lancs.ac.uk"><code>chicas@lists.lancs.ac.uk</code></a>. Posting
+is restricted to list members, which is all staff and postgraduate
+students.
+</p>
+<p>
+<strong>Do not send attachments</strong> on this list, the maximum message size is very small, and the mail will silently fail.
+</p>
+<p>
+To see the members of the list, send an email to
+<a href="mailto:majordomo@lists.lancs.ac.uk">
+<code>majordomo@lists.lancs.ac.uk</code>
+</a> with <code>who chicas</code> in the body of
+the message.
+</p>
+<p>
+To change your email address on the list or to request new people, send names
+and email addresses to Barry.
+</p>
+
+<h3>Chicas Web Pages</h3>
+<p>
+Changes for the web server should be requested via the 
+<a href="https://github.com/chicas-lancaster/websource/issues">web source</a> 
+issue tracker, for which you need a github account, or the Chicas IT helpdesk,
+or via email to Barry.
+</p>
+<p><strong>Experts only</strong> If you have skills with
+HTML then you can fork the 
+<a href="https://github.com/chicas-lancaster/websource">
+web source repository</a>, edit and send a pull request.
+To build the site from source to test your changes requires
+the <a href="http://hyde.github.io">Hyde</a> static site generator
+system installed on your computer.
+</p>
+<p>
+A newer, easier, system for changes is under consideration.
+</p>
+
+<h3>Chicas News</h3>
+<p>
+If you have some news for the website, please send it to Barry
+with the copy text, any images, links etc. Please try and edit
+into a news-style report if possible.
+</p>
+
+<h3>Chicas Calendar</h3>
+<p>
+The Chicas calendar events which appear on the web site are
+managed by a shared Google Calendar. You can ask for permission
+to add events to the calendar - file a Chicas IT Helpdesk issue.
+</p>
+
+
+{% endblock %}
