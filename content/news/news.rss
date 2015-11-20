@@ -1,0 +1,33 @@
+---
+extends: rss.j2
+default_block: main
+title: News Items
+description: Updates from the group
+---
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+ <title>CHICAS News</title>
+ <description>Latest Information from the CHICAS Stats/Epi group at Lancaster</description>
+ <link>http://chicas.lancaster-university.uk/</link>
+ <lastBuildDate>{{ "" |  date_format("%a, %e %b %Y %H:%M:%S +0000") }}</lastBuildDate>
+ <pubDate>{{ "" |  date_format("%a, %e %b %Y %H:%M:%S +0000") }}</pubDate>
+ <ttl>1800</ttl>
+ 
+{% set items = resource.node.walk_resources()|selectattr("is_processable")|selectattr("meta.release")|selectattr("meta.extends","equalto","news.j2") %}
+
+{% set results = items|sort(reverse=True, attribute="meta.release") %}
+
+{% for res in results[:5] %}
+
+ <item>
+  <title>{{res.meta.title}}</title>
+  <description>{{res.meta.description}}</description>
+  <link>http://chicas.lancaster-university.uk/{{res.full_url}}</link>
+  <pubDate>{{res.meta.releasedate.strftime("%a, %e %b %Y %H:%M:%S +0000")}}</pubDate>
+ </item>
+
+{% endfor %}
+
+</channel>
+</rss>
