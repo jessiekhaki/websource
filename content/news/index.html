@@ -1,11 +1,10 @@
 ---
 extends: flexigrid.j2
-default_block: main
 title: News Items
 description: Updates from the group
 ---
-
-<h2>News <a href="/news/news.rss" title="News Feed"><img src="/media/images/graphics/rss_icon_glass_red24.PNG"></a></h2>
+{% block main %}
+<h2>News Archive <a href="/news/news.rss" title="News Feed"><img src="/media/images/graphics/rss_icon_glass_red24.PNG"></a></h2>
 
 <table>
 {% set items = resource.node.walk_resources()|selectattr("is_processable")|selectattr("meta.release") %}
@@ -16,4 +15,13 @@ description: Updates from the group
 {% endif %}
 {% endfor %}
 </table>
+
+{% endblock %}
+
+{% block sidebar %}
+<h2>News</h2>
+<p>The CHICAS news archive lists all the stories that have appeared on our web site. You can
+also subscribe to our <a href="/news/news.rss"><img src="/media/images/graphics/rss_icon_glass_red12.PNG">News Feed</a> if you use an RSS news reader.
+</p>
+{% endblock %}
 
