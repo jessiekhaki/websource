@@ -87,16 +87,22 @@ groups:
 ---
 
 {% block main %}
+<style>
+div.project div.title {color: black}
+</style>
 <h2>CHICAS Partners</h2>
 <div id="projects">
 
-{% for group in resource.meta.groups %}
+{% for group in resource.meta.groups|sort(attribute='title') %}
 <div class="projectbox">
+<a class="grouplink" href="{{group.url}}" target="_new">
 <div class="project">
 <div class="title">
-<a target="_new" href="{{group.url}}">{{group.title}}</a>
+<!-- class="grouplink" target="_new" href="{{group.url}}">{{group.title}}</a-->
+{{group.title}}
 </div>
 </div>
+</a>
 </div>
 {% endfor %}
 </div>
