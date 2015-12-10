@@ -102,7 +102,7 @@ groups:
  - title: World Health Organisation
    url: http://www.who.int
    location: Geneva
- - title: African Institute for Mathematical Sciences, Tanzania
+ - title: African Institute for Mathematical Sciences
    url: http://www.aims-tanzania.org/
    location: Tanzania
  - title: MRC Biostatistics Unit
@@ -130,6 +130,7 @@ groups:
 div.project div.title {color: black}
 </style>
 <h2>CHICAS Partners</h2>
+
 <div id="projects">
 
 {% for group in resource.meta.groups|sort(attribute='title') %}
@@ -149,7 +150,14 @@ div.project div.title {color: black}
 {% endblock %}
     
 {% block sidebar %}
+<h3>About our connections...</h3>
 <p>
-Notes.
+CHICAS works with many organisations across the country and the globe. This
+is a list of links of groups with which we have some connection - it may be
+collaboration, funding, affiliation or formal partnership.
+</p>
+<p>
+Links will open in a new window. Please report any failing links to the 
+CHICAS website team.
 </p>
 {% endblock %}
