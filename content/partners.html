@@ -5,85 +5,124 @@ description: List of organisations and teams we work with.
 groups:
  - title: Lancaster Data Science Institute
    url: http://www.lancaster.ac.uk/dsi/
+   location: Lancaster
  - title: Farr Institute at HeRC
    url: http://www.farrinstitute.org/centre/HeRC/63_About.html
+   location: Manchester
  - title: NIHR Health Protection Research Unit in Gastrointestinal Infections
    url: http://www.hprugi.nihr.ac.uk/
+   location: 
  - title: Liverpool School of Tropical Medicine
    url: http://www.lstmed.ac.uk/
+   location: Liverpool
  - title: Salford Royal NHS Foundation Trust
    url: http://www.srft.nhs.uk/
+   location: Salford
  - title: Public Health England
    url: https://www.gov.uk/government/organisations/public-health-england
+   location: 
  - title: Oswaldo Cruz Foundation
    url: http://portal.fiocruz.br/en/content/home-ingl%C3%AAs
+   location: Brazil
  - title: The Colt Foundation
    url: http://www.coltfoundation.org.uk/
+   location: 
  - title: Centres for Disease Control and Prevention
    url: http://www.cdc.gov/
+   location: USA
  - title: Johns Hopkins Bloomberg School of Public Health
    url: http://www.jhsph.edu/
+   location: Baltimore
  - title: Imperial College School of Public Health
    url: https://www1.imperial.ac.uk/publichealth/departments/ide/
+   location: London
  - title: Hong Kong University School of Public Health
    url: http://sph.hku.hk/en/
+   location: Hong Kong
  - title: University of Liverpool Institute of Infection and Global Health
    url: https://www.liv.ac.uk/infection-and-global-health/
+   location: Liverpool
  - title: University of Pittsburgh School of Medicine
    url: http://www.medschool.pitt.edu/
+   location: Pittsburgh
  - title: Flowminder Foundation
    url: http://www.flowminder.org
+   location: Stockholm
  - title: Centre for Ecology and Hydrology
    url: http://www.ceh.ac.uk
+   location: Wallingford
  - title: Bioeconomy Africa
    url: http://bioeconomyafrica.net/
+   location: Addis Ababa
  - title: Centre de Recerca en Sanitat Animal (CReSA)
    url: http://www.irta.cat/
+   location: Barcelona
  - title: Scienze della Natura e del Territorio
    url: http://hostweb3.ammin.uniss.it/php/dipnet.php
+   location: Sassari, Italy
  - title: The Water Research Institute
    url: http://www.irsa.cnr.it/ShPage.php?lang=en&pag=home
+   location: Bari, Italy
  - title: Department of Zoology, University of Oxford
    url: http://www.zoo.ox.ac.uk
+   location: Oxford
  - title: College of Public Health, University of Arizona
    url: https://publichealth.arizona.edu/
+   location: Tucson
  - title: United Nations Food and Agriculture Organisation
    url: http://www.fao.org
+   location: Rome
  - title: Otago University
    url: http://www.maths.otago.ac.nz/
+   location: New Zealand
  - title: Lancaster Environment Centre
    url: http://www.lancaster.ac.uk/lec/
+   location: Lancaster
  - title: Yale University School of Public Health
    url: https://publichealth.yale.edu/
+   location: New Haven, USA
  - title: Malawi-Liverpool-Wellcome Trust Clinical Research Programme
    url: http://www.mlw.medcol.mw/
+   location: Blantyre, Malawi
  - title: University of Liverpool Faculty of Health and Life Sciences
    url: https://www.liv.ac.uk/health-and-life-sciences/
+   location: Liverpool
  - title: KEMRI-Wellcome Trust - University of Oxford Collaborative Programme
    url: http://www.kemri-wellcome.org/
+   location: Kenya
  - title: Stichting Dioraphte
    url: http://www.dioraphte.nl/
+   location: Netherlands
  - title: International Research Institute for Climate and Society
    url: http://iri.columbia.edu/
+   location: New York
  - title: Coalition for Operational Research on Neglected Tropical Diseases
    url: http://www.ntdsupport.org/cor-ntd
+   location: Decatur, Georgia, USA
  - title: World Health Organisation
    url: http://www.who.int
+   location: Geneva
  - title: African Institute for Mathematical Sciences, Tanzania
    url: http://www.aims-tanzania.org/
+   location: Tanzania
  - title: MRC Biostatistics Unit
    url: http://www.mrc-bsu.cam.ac.uk/
+   location: Cambridge, UK
  - title: German Centre for Neurodegenerative Diseases (DZNE)
    url: http://www.dzne.de/home.html
+   location: Bonn, Germany
  - title: MD Anderson Cancer Center
    url: http://www.mdanderson.org/
+   location: Houston, Texas
  - title: MRC Epidemiology Unit
    url: http://www.mrc-epid.cam.ac.uk/
+   location: Cambridge, UK
  - title: AstraZeneca Innovative Medicine Oncology
    url: http://www.astrazenecacareers.com/career-areas/research-and-development/imed/
+   location: Cambridge, UK
  - title: University of Glasgow School of Mathematics and Statistics
    url: http://www.gla.ac.uk/schools/mathematicsstatistics/
-
+   location: Glasgow, UK
 ---
 
 {% block main %}
@@ -99,7 +138,7 @@ div.project div.title {color: black}
 <div class="project">
 <div class="title">
 <!-- class="grouplink" target="_new" href="{{group.url}}">{{group.title}}</a-->
-{{group.title}}
+{{group.title}} {% if group.location %}({{group.location}}){% endif %}
 </div>
 </div>
 </a>
