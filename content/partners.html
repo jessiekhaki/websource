@@ -1,5 +1,5 @@
 ---
-extends: flexigrid.j2
+extends: flexigridisotope.j2
 title: CHICAS Partners and Connections
 description: List of organisations and teams we work with.
 groups:
@@ -88,16 +88,18 @@ groups:
 
 {% block main %}
 <h2>CHICAS Partners</h2>
+<div id="projects">
 
-{% for groups in resource.meta.groups|batch(4,False) %}
-<div class="ym-grid linearize-level-1">
- {% for group in groups %}
-   <div class="ym-g25 ym-gl">
-        <a target="_new" href="{{group.url}}">{{group.title}}</a>
-   </div>
-{% endfor %}
+{% for group in resource.meta.groups %}
+<div class="projectbox">
+<div class="project">
+<div class="title">
+<a target="_new" href="{{group.url}}">{{group.title}}</a>
+</div>
+</div>
 </div>
 {% endfor %}
+</div>
 
 {% endblock %}
     
