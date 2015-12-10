@@ -1,0 +1,108 @@
+---
+extends: flexigrid.j2
+title: CHICAS Partners and Connections
+description: List of organisations and teams we work with.
+groups:
+ - title: Lancaster Data Science Institute
+   url: http://www.lancaster.ac.uk/dsi/
+ - title: Farr Institute at HeRC
+   url: http://www.farrinstitute.org/centre/HeRC/63_About.html
+ - title: NIHR Health Protection Research Unit in Gastrointestinal Infections
+   url: http://www.hprugi.nihr.ac.uk/
+ - title: Liverpool School of Tropical Medicine
+   url: http://www.lstmed.ac.uk/
+ - title: Salford Royal NHS Foundation Trust
+   url: http://www.srft.nhs.uk/
+ - title: Public Health England
+   url: https://www.gov.uk/government/organisations/public-health-england
+ - title: Oswaldo Cruz Foundation
+   url: http://portal.fiocruz.br/en/content/home-ingl%C3%AAs
+ - title: The Colt Foundation
+   url: http://www.coltfoundation.org.uk/
+ - title: Centres for Disease Control and Prevention
+   url: http://www.cdc.gov/
+ - title: Johns Hopkins Bloomberg School of Public Health
+   url: http://www.jhsph.edu/
+ - title: Imperial College School of Public Health
+   url: https://www1.imperial.ac.uk/publichealth/departments/ide/
+ - title: Hong Kong University School of Public Health
+   url: http://sph.hku.hk/en/
+ - title: University of Liverpool Institute of Infection and Global Health
+   url: https://www.liv.ac.uk/infection-and-global-health/
+ - title: University of Pittsburgh School of Medicine
+   url: http://www.medschool.pitt.edu/
+ - title: Flowminder Foundation
+   url: http://www.flowminder.org
+ - title: Centre for Ecology and Hydrology
+   url: http://www.ceh.ac.uk
+ - title: Bioeconomy Africa
+   url: http://bioeconomyafrica.net/
+ - title: Centre de Recerca en Sanitat Animal (CReSA)
+   url: http://www.irta.cat/
+ - title: Scienze della Natura e del Territorio
+   url: http://hostweb3.ammin.uniss.it/php/dipnet.php
+ - title: The Water Research Institute
+   url: http://www.irsa.cnr.it/ShPage.php?lang=en&pag=home
+ - title: Department of Zoology, University of Oxford
+   url: http://www.zoo.ox.ac.uk
+ - title: College of Public Health, University of Arizona
+   url: https://publichealth.arizona.edu/
+ - title: United Nations Food and Agriculture Organisation
+   url: http://www.fao.org
+ - title: Otago University
+   url: http://www.maths.otago.ac.nz/
+ - title: Lancaster Environment Centre
+   url: http://www.lancaster.ac.uk/lec/
+ - title: Yale University School of Public Health
+   url: https://publichealth.yale.edu/
+ - title: Malawi-Liverpool-Wellcome Trust Clinical Research Programme
+   url: http://www.mlw.medcol.mw/
+ - title: University of Liverpool Faculty of Health and Life Sciences
+   url: https://www.liv.ac.uk/health-and-life-sciences/
+ - title: KEMRI-Wellcome Trust - University of Oxford Collaborative Programme
+   url: http://www.kemri-wellcome.org/
+ - title: Stichting Dioraphte
+   url: http://www.dioraphte.nl/
+ - title: International Research Institute for Climate and Society
+   url: http://iri.columbia.edu/
+ - title: Coalition for Operational Research on Neglected Tropical Diseases
+   url: http://www.ntdsupport.org/cor-ntd
+ - title: World Health Organisation
+   url: http://www.who.int
+ - title: African Institute for Mathematical Sciences, Tanzania
+   url: http://www.aims-tanzania.org/
+ - title: MRC Biostatistics Unit
+   url: http://www.mrc-bsu.cam.ac.uk/
+ - title: German Centre for Neurodegenerative Diseases (DZNE)
+   url: http://www.dzne.de/home.html
+ - title: MD Anderson Cancer Center
+   url: http://www.mdanderson.org/
+ - title: MRC Epidemiology Unit
+   url: http://www.mrc-epid.cam.ac.uk/
+ - title: AstraZeneca Innovative Medicine Oncology
+   url: http://www.astrazenecacareers.com/career-areas/research-and-development/imed/
+ - title: University of Glasgow School of Mathematics and Statistics
+   url: http://www.gla.ac.uk/schools/mathematicsstatistics/
+
+---
+
+{% block main %}
+<h2>CHICAS Partners</h2>
+
+{% for groups in resource.meta.groups|batch(4,False) %}
+<div class="ym-grid linearize-level-1">
+ {% for group in groups %}
+   <div class="ym-g25 ym-gl">
+        <a target="_new" href="{{group.url}}">{{group.title}}</a>
+   </div>
+{% endfor %}
+</div>
+{% endfor %}
+
+{% endblock %}
+    
+{% block sidebar %}
+<p>
+Notes.
+</p>
+{% endblock %}
