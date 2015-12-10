@@ -38,6 +38,12 @@ context:
                 type: node
                 url: people
             -
+                name: Partners
+                description: Partners and Affiliations
+                css_class: partners
+                type: node
+                url: partners.html
+            -
                 name: News
                 description: News Items
                 css_class: news
