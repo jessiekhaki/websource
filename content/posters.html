@@ -134,12 +134,16 @@ posters:
    file: MLW-MRC_Poster08Dec2014_MGC_PJD.pdf
    image: MLW-MRC_Poster08Dec2014_MGC_PJD.png
    authors: Peter Diggle
+ - title: "One Health e-Surveillance for Early Detection of Gastrointestinal Disease Outbreaks"
+   file: ISDS2015_poster_gi_early_detection.pdf
+   image: ISDS2015_poster_gi_early_detection.png
+   authors: Alison Hale, Barry Rowlingson, Emanuele Giorgio, Peter Diggle
 ---
 
 {% block main %}
 <h1>Research Posters</h1>
 
-{% for posters in resource.meta.posters|batch(2,False) %}
+{% for posters in resource.meta.posters|sort(attribute='title')|batch(2,False) %}
 <div class="ym-grid linearize-level-2">
  {% for poster in posters %}
    <div class="ym-g50 ym-gl">
