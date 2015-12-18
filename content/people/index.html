@@ -12,16 +12,21 @@ table.people td {padding: 0 0.5em 0 0}
 {% for grp, res_walker in site.content.walk_status_groups() %}
 
 {% for res in res_walker|surnamesort %}
-
+<!-- see here http://jsfiddle.net/gionaf/A2M22/ -->
 {% if loop.first %}
 <div class="peoplegroup">
 <h3>{{ grp.description }}</h3>
-<table class="narrow people">
+<div class="people">
 {% endif %}
-<tr>  <td style="text-align: right"><a href="{{res.full_url}}">{{res|firstnames}}</a></td><td><a href="{{res.full_url}}"> {{res|lastname}}</a></td></tr>
+<div class="row">  
+<div class="cell" style="text-align: right">
+<a href="{{res.full_url}}">{{res|firstnames}}</a></div>
+<div class="cell">
+<a href="{{res.full_url}}"> {{res|lastname}}</a><
+/div></div>
 
 {% if loop.last %}
-</table>
+</div>
 </div>
 {% endif %} 
 {% endfor %}
