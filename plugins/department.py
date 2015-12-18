@@ -80,13 +80,21 @@ def surnamesort(env, value, verbose=False):
     def getsur(x):
         return x.meta.title.split()[-1]
     return sorted(value, key=getsur)
+@environmentfilter
+def lastname(env, value, verbose=False):
+    return value.meta.title.split()[-1]
+@environmentfilter
+def firstnames(env, value, verbose=False):
+    return " ".join(value.meta.title.split()[:-1])
 
 filters={
     'todateformat': todateformat,
     'calurl': datacalendar,
     'googleurl': googlecalendar,
     'vevent': tovevent,
-    'surnamesort': surnamesort
+    'surnamesort': surnamesort,
+    'lastname': lastname,
+    'firstnames': firstnames
 }
 
 class DepartmentPlugin(MetaPlugin):

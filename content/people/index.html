@@ -4,6 +4,9 @@ title: People
 description: List of CHICAS people
 ---
 {% block main %}
+<style>
+table.people td {padding: 0 0.5em 0 0}
+</style>
 <h2>Personnel</h2>
 <div id="peoplegroups">
 {% for grp, res_walker in site.content.walk_status_groups() %}
@@ -13,12 +16,12 @@ description: List of CHICAS people
 {% if loop.first %}
 <div class="peoplegroup">
 <h3>{{ grp.description }}</h3>
-<ul>
+<table class="narrow people">
 {% endif %}
-  <li><a href="{{res.full_url}}">{{ res.meta.title }}</a></li>
+<tr>  <td style="text-align: right"><a href="{{res.full_url}}">{{res|firstnames}}</a></td><td><a href="{{res.full_url}}"> {{res|lastname}}</a></td></tr>
 
 {% if loop.last %}
-</ul>
+</table>
 </div>
 {% endif %} 
 {% endfor %}
