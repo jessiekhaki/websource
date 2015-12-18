@@ -7,7 +7,8 @@ description: List of CHICAS people
 <h2>Personnel</h2>
 <div id="peoplegroups">
 {% for grp, res_walker in site.content.walk_status_groups() %}
-{% for res in res_walker %}
+
+{% for res in res_walker|surnamesort %}
 
 {% if loop.first %}
 <div class="peoplegroup">
@@ -15,11 +16,7 @@ description: List of CHICAS people
 <ul>
 {% endif %}
   <li><a href="{{res.full_url}}">{{ res.meta.title }}</a></li>
-{% for bit in res.meta.title.split(" ")|reverse %}
-<ul>
-<li>{{bit}}</li>
-</ul>
-{% endfor %}
+
 {% if loop.last %}
 </ul>
 </div>

@@ -73,12 +73,20 @@ def googlecalendar(env, value, verbose=False):
                               urllib.quote_plus(value.meta.location))
     return URL
     
+@environmentfilter
+def surnamesort(env, value, verbose=False):
+    """ sort on last name. Possibly sorting on second name is better 
+    when people present with three names but I'm not sure..."""
+    def getsur(x):
+        return x.meta.title.split()[-1]
+    return sorted(value, key=getsur)
 
 filters={
     'todateformat': todateformat,
     'calurl': datacalendar,
     'googleurl': googlecalendar,
-    'vevent': tovevent
+    'vevent': tovevent,
+    'surnamesort': surnamesort
 }
 
 class DepartmentPlugin(MetaPlugin):
