@@ -15,6 +15,11 @@ description: List of CHICAS people
 <ul>
 {% endif %}
   <li><a href="{{res.full_url}}">{{ res.meta.title }}</a></li>
+{% for bit in res.meta.title.split(" ")|reverse %}
+<ul>
+<li>{{bit}}</li>
+</ul>
+{% endfor %}
 {% if loop.last %}
 </ul>
 </div>
