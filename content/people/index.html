@@ -6,6 +6,22 @@ description: List of CHICAS people
 {% block main %}
 <style>
 table.people td {padding: 0 0.5em 0 0}
+.people {
+    display:table;
+}
+.header {
+    display:table-header-group;
+    font-weight:bold;
+}
+a.row {
+    display:table-row;
+}
+.rowGroup {
+}
+.cell {
+    display:table-cell;
+    width:25%;
+}
 </style>
 <h2>Personnel</h2>
 <div id="peoplegroups">
@@ -18,12 +34,15 @@ table.people td {padding: 0 0.5em 0 0}
 <h3>{{ grp.description }}</h3>
 <div class="people">
 {% endif %}
-<div class="row">  
-<div class="cell" style="text-align: right">
-<a href="{{res.full_url}}">{{res|firstnames}}</a></div>
-<div class="cell">
-<a href="{{res.full_url}}"> {{res|lastname}}</a><
-/div></div>
+
+<a class="row" href="{{res.full_url}}">
+<span class="cell" style="text-align: right">
+{{res|firstnames}}
+</span>
+<span class="cell">
+&nbsp;{{res|lastname}}
+</span>
+</a>
 
 {% if loop.last %}
 </div>
