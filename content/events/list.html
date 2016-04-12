@@ -3,6 +3,14 @@ extends: flexigrid.j2
 title: Upcoming Events
 description: Upcoming events
 ---
+
+{% block extrahead %}
+
+<link rel='stylesheet' href="{{media_url('/css/fullcalendar.css')}}" />
+
+{% endblock %}
+
+
 {% block main %}
 <h2>Upcoming Events</h2>
 
@@ -10,17 +18,48 @@ description: Upcoming events
 </div>
 
 {% endblock %}
+
+
+{% block sidebar %}
+<div id="calendar">
+</div>
+
+{% include "eventsidebar.j2" %}
+{% endblock %}
+
+
 {% block footscripts %}
 <script src="{{media_url('/js/libs/jquery.min.js')}}"></script>
 <script src="run.js"></script>
+<script src="{{media_url('/js/libs/moment.min.js')}}"></script>
+<script src="{{media_url('/js/libs/fullcalendar.min.js')}}"></script>
+<script type='text/javascript' src="{{media_url('/js/libs/gcal.js')}}"></script>
 <script>
-$(document).ready(function(){
-  getN(10,"#events","eventList","eventItem",99999);
+$(document).ready(function() {
+
+ getN(10,"#events","eventList","eventItem",99999);
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+	googleCalendarApiKey: 'AIzaSyAB1Jd-Jf3U-R84BJzJAPTIYZZmM1sqtjs',
+	events: {
+	    googleCalendarId: 'e8j7bjqajiblsstfcc59iimss0@group.calendar.google.com',
+            className: 'gcal-event'
+        },
+	header: {
+	    left:   'title',
+	    center: '',
+	    right:  'today prev,next month basicWeek'
+	},
+	eventClick: function(event) {
+	    // opens events in a new window
+            alert('Event: '+event.title);
+	    return false;
+	}
+        // put your options and callbacks here
+    })
+    
 });
-
 </script>
-{% endblock %}
-
-{% block sidebar %}
-{% include "eventsidebar.j2" %}
-{% endblock %}
+{% endblock footscripts %}
