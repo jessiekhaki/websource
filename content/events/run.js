@@ -86,6 +86,7 @@ getN = function(n, root, wrapper, item, trim){
     var now = new Date().toISOString();
     var URL = "https://www.googleapis.com/calendar/v3/calendars/e8j7bjqajiblsstfcc59iimss0%40group.calendar.google.com/events?callback=?&maxResults="+n+"&timeMin="+now+"&orderBy=startTime&singleEvents=true&key="+api;
     $.getJSON(URL , function(json) {
+        $(r).empty();
 	var events = json.items;
 	var list = templates[wrapper].clone();
 	$.each(events, function(){
@@ -116,4 +117,24 @@ getN = function(n, root, wrapper, item, trim){
 
 
 
+drawcalendar = function(){
+    $('#calendar').fullCalendar({
+	googleCalendarApiKey: 'AIzaSyAB1Jd-Jf3U-R84BJzJAPTIYZZmM1sqtjs',
+	events: {
+	    googleCalendarId: 'e8j7bjqajiblsstfcc59iimss0@group.calendar.google.com',
+            className: 'gcal-event'
+        },
+	header: {
+	    left:   'title',
+	    center: '',
+	    right:  'today prev,next month basicWeek'
+	},
+	eventClick: function(event) {
+	    // opens events in a new window
+            alert('Event: '+event.title);
+	    return false;
+	}
+        // put your options and callbacks here
+    })
+    }
 

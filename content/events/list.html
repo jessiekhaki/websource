@@ -12,17 +12,25 @@ description: Upcoming events
 
 
 {% block main %}
-<h2>Upcoming Events</h2>
-
-<div id="events">
+<div class="caldisplay">
+<button id="butupcoming">Upcoming</button>
+<button id="butarchive">Archive</button>
+<button id="butcalendar">Calendar</button>
 </div>
 
+<div id="events">
+<h2>Upcoming Events</h2>
+</div>
+<div id="calendar">
+<h2>Calendar</h2>
+</div>
+<div id="archive">
+<h2>Archive</h2>
+</div>
 {% endblock %}
 
 
 {% block sidebar %}
-<div id="calendar">
-</div>
 
 {% include "eventsidebar.j2" %}
 {% endblock %}
@@ -39,27 +47,28 @@ $(document).ready(function() {
 
  getN(10,"#events","eventList","eventItem",99999);
 
-    // page is now ready, initialize the calendar...
+ drawcalendar();
+ $("#calendar").hide()    
 
-    $('#calendar').fullCalendar({
-	googleCalendarApiKey: 'AIzaSyAB1Jd-Jf3U-R84BJzJAPTIYZZmM1sqtjs',
-	events: {
-	    googleCalendarId: 'e8j7bjqajiblsstfcc59iimss0@group.calendar.google.com',
-            className: 'gcal-event'
-        },
-	header: {
-	    left:   'title',
-	    center: '',
-	    right:  'today prev,next month basicWeek'
-	},
-	eventClick: function(event) {
-	    // opens events in a new window
-            alert('Event: '+event.title);
-	    return false;
-	}
-        // put your options and callbacks here
-    })
-    
+ $("#butcalendar").click(
+   function(){
+   $("#events").hide();
+   $("#archive").hide();
+   $("#calendar").show();
+  });
+ $("#butupcoming").click(
+   function(){
+   $("#events").show();
+   $("#archive").hide();
+   $("#calendar").hide();
+  });
+ $("#butarchive").click(
+   function(){
+   $("#events").hide();
+   $("#archive").show();
+   $("#calendar").hide();
+  });
+
 });
 </script>
 {% endblock footscripts %}
