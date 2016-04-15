@@ -1,56 +1,77 @@
 ---
 extends: flexigrid.j2
-title: Calendar
-description: Diary Dates
+title: Upcoming Events
+description: Upcoming events
 ---
+
 {% block extrahead %}
 
 <link rel='stylesheet' href="{{media_url('/css/fullcalendar.css')}}" />
 
 {% endblock %}
 
-{% block main %}
-<h2>Calendar</h2>
 
-<div id="calendar">
+{% block main %}
+<div class="caldisplay">
+<button id="butupcoming">Upcoming</button>
+<button id="butarchive">Archive</button>
+<button id="butcalendar">Calendar</button>
 </div>
 
+<div id="events">
+<h2>Upcoming Events</h2>
+</div>
+<div id="calendar">
+<h2>Calendar</h2>
+</div>
+<div id="archive">
+<h2>Archive</h2>
+</div>
 {% endblock %}
 
+
 {% block sidebar %}
+
 {% include "eventsidebar.j2" %}
 {% endblock %}
 
 
 {% block footscripts %}
 <script src="{{media_url('/js/libs/jquery.min.js')}}"></script>
+<script src="run.js"></script>
 <script src="{{media_url('/js/libs/moment.min.js')}}"></script>
 <script src="{{media_url('/js/libs/fullcalendar.min.js')}}"></script>
 <script type='text/javascript' src="{{media_url('/js/libs/gcal.js')}}"></script>
 <script>
 $(document).ready(function() {
 
-    // page is now ready, initialize the calendar...
+ getN(10,"#events","eventList","eventItem",99999);
 
-    $('#calendar').fullCalendar({
-	googleCalendarApiKey: 'AIzaSyAB1Jd-Jf3U-R84BJzJAPTIYZZmM1sqtjs',
-	events: {
-	    googleCalendarId: 'e8j7bjqajiblsstfcc59iimss0@group.calendar.google.com',
-            className: 'gcal-event'
-        },
-	header: {
-	    left:   'title',
-	    center: '',
-	    right:  'today prev,next month basicWeek'
-	},
-	eventClick: function(event) {
-	    // opens events in a new window
-	    window.open(event.url, '_blank');
-	    return false;
-	}
-        // put your options and callbacks here
-    })
-    
+ drawcalendar();
+  $("#calendar").hide()    
+
+ $("#butcalendar").click(
+   function(){
+   $("#events").hide();
+   $("#archive").hide();
+   $("#calendar").show(400, function(){
+     $('#calendar').fullCalendar('prev');
+     $('#calendar').fullCalendar('next');
+    });
+  });
+ $("#butupcoming").click(
+   function(){
+   $("#events").show();
+   $("#archive").hide();
+   $("#calendar").hide();
+  });
+ $("#butarchive").click(
+   function(){
+   $("#events").hide();
+   $("#archive").show();
+   $("#calendar").hide();
+  });
+
 });
 </script>
 {% endblock footscripts %}
