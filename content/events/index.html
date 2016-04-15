@@ -7,26 +7,31 @@ description: Upcoming events
 {% block extrahead %}
 
 <link rel='stylesheet' href="{{media_url('/css/fullcalendar.css')}}" />
+<link rel='stylesheet' href="{{media_url('/css/yaml/add-ons/accessible-tabs/tabs.css')}}" />
 
 {% endblock %}
 
 
 {% block main %}
-<div class="caldisplay">
-<button id="butupcoming">Upcoming</button>
-<button id="butarchive">Archive</button>
-<button id="butcalendar">Calendar</button>
+
+<div class="jquery_tabs">
+      <h2 class="eventsection" >Upcoming</h2>
+      <div class="tabbody">
+	<h4>Upcoming Events</h4>
+	<div id="events"></div>
+      </div>
+      <h2 class="eventsection" >Calendar</h2>
+      <div class="tabbody">
+	<h4>Calendar</h4>
+	<div id="calendar">
+	</div>
+      </div>
+      <h2 class="eventsection" >Archive</h2>
+      <div class="tabbody"> 
+	<h4>Archive</h4>
+      </div>
 </div>
 
-<div id="events">
-<h2>Upcoming Events</h2>
-</div>
-<div id="calendar">
-<h2>Calendar</h2>
-</div>
-<div id="archive">
-<h2>Archive</h2>
-</div>
 {% endblock %}
 
 
@@ -41,6 +46,7 @@ description: Upcoming events
 <script src="run.js"></script>
 <script src="{{media_url('/js/libs/moment.min.js')}}"></script>
 <script src="{{media_url('/js/libs/fullcalendar.min.js')}}"></script>
+<script src="{{media_url('/css/yaml/add-ons/accessible-tabs/jquery.tabs.js')}}"></script>
 <script type='text/javascript' src="{{media_url('/js/libs/gcal.js')}}"></script>
 <script>
 $(document).ready(function() {
@@ -48,29 +54,8 @@ $(document).ready(function() {
  getN(10,"#events","eventList","eventItem",99999);
 
  drawcalendar();
-  $("#calendar").hide()    
 
- $("#butcalendar").click(
-   function(){
-   $("#events").hide();
-   $("#archive").hide();
-   $("#calendar").show(400, function(){
-     $('#calendar').fullCalendar('prev');
-     $('#calendar').fullCalendar('next');
-    });
-  });
- $("#butupcoming").click(
-   function(){
-   $("#events").show();
-   $("#archive").hide();
-   $("#calendar").hide();
-  });
- $("#butarchive").click(
-   function(){
-   $("#events").hide();
-   $("#archive").show();
-   $("#calendar").hide();
-  });
+$('.jquery_tabs').accessibleTabs({tabhead: '.eventsection'});
 
 });
 </script>
