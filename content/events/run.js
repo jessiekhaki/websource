@@ -129,6 +129,9 @@ drawcalendar = function(){
 	    center: '',
 	    right:  'today prev,next month basicWeek'
 	},
+        loading: function(a,b){
+	    $("#calendar").show();
+	},
 	eventClick: function(event) {
 	    // opens events in a new window
             alert('Event: '+event.title);

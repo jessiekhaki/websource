@@ -22,7 +22,7 @@ description: Chicas Events Calendar
       </div>
       <h2 class="eventsection" >Calendar</h2>
       <div class="tabbody">
-      <button id="showtoday">Today</button>
+      <button id="showtoday">Load Calendar</button>
 	<div id="calendar">
 	</div>
       </div>
@@ -53,7 +53,7 @@ description: Chicas Events Calendar
 $(document).ready(function() {
 
  getN(10,"#events","eventList","eventItem",99999);
-//drawcalendar();
+drawcalendar();
 
 
 $('.jquery_tabs').accessibleTabs({tabhead: '.eventsection'});
