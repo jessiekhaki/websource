@@ -15,16 +15,16 @@ description: Chicas Events Calendar
 {% block main %}
 
 <div class="jquery_tabs">
-      <h2 class="eventsection" >Calendar</h2>
-      <div class="tabbody">
-	<h4>Calendar</h4>
-	<div id="calendar">
-	</div>
-      </div>
       <h2 class="eventsection" >Upcoming</h2>
       <div class="tabbody">
 	<h4>Upcoming Events</h4>
 	<div id="events"></div>
+      </div>
+      <h2 class="eventsection" >Calendar</h2>
+      <div class="tabbody">
+      <button id="showtoday">Today</button>
+	<div id="calendar">
+	</div>
       </div>
 
       <h2 class="eventsection" >Archive</h2>
@@ -53,12 +53,12 @@ description: Chicas Events Calendar
 $(document).ready(function() {
 
  getN(10,"#events","eventList","eventItem",99999);
-drawcalendar();
+//drawcalendar();
 
-$('.jquery_tabs').accessibleTabs({tabhead: '.eventsection'}).bind('showTab.accessibleTabs', function(e) {
-                drawcalendar();
 
-        });
+$('.jquery_tabs').accessibleTabs({tabhead: '.eventsection'});
+
+$("#showtoday").bind("click", function(){drawcalendar()});
 
 });
 </script>
