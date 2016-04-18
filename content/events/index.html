@@ -14,23 +14,20 @@ description: Chicas Events Calendar
 
 {% block main %}
 
+<h2>Event Listings</h2>
 <div class="jquery_tabs">
-      <h2 class="eventsection" >Upcoming</h2>
+      <h3 class="eventsection" >Upcoming</h3>
       <div class="tabbody">
-	<h4>Upcoming Events</h4>
 	<div id="events"></div>
       </div>
-      <h2 class="eventsection" >Calendar</h2>
-      <div class="tabbody">
-      <button id="showtoday">Load Calendar</button>
-	<div id="calendar">
-calendar
-	</div>
-      </div>
 
-      <h2 class="eventsection" >Archive</h2>
+      <h3 class="eventsection" >Archive</h3>
       <div class="tabbody"> 
-	<h4>Events Archive</h4>
+	<ul>
+	  <li>event...</li>
+	  <li>event...</li>
+	  <li>event...</li>
+	</ul>
       </div>
 </div>
 
@@ -38,7 +35,6 @@ calendar
 
 
 {% block sidebar %}
-
 {% include "eventsidebar.j2" %}
 {% endblock %}
 
@@ -55,22 +51,6 @@ $(document).ready(function() {
 
  getN(10,"#events","eventList","eventItem",99999);
 
-$("#calendar").on('show', 
-   function(){
-//     drawcalendar();
-   });
-
-var target = document.querySelector('#calendar');
-var observer = new MutationObserver(function(mutations) {
-  mutations.forEach(function(mutation) {
-    drawcalendar();
-    console.log("Mutated...")
-  });    
-})
-
-var config = { attributes: true, childList: true, characterData: true };
- 
-observer.observe(target, config);
 
 $('.jquery_tabs').accessibleTabs({tabhead: '.eventsection'});
 
