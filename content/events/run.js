@@ -11,17 +11,6 @@
     };
 })();
   
-(function ($) {
-  $.each(['show', 'hide'], function (i, ev) {
-    var el = $.fn[ev];
-    $.fn[ev] = function () {
-      this.trigger(ev);
-      el.apply(this, arguments);
-      return el;
-    };
-  });
-})(jQuery);
-
 pad = function(v){
     if(v<9){
 	return "0"+v;
@@ -92,10 +81,23 @@ now = new Date().toISOString();
 
 api="AIzaSyAB1Jd-Jf3U-R84BJzJAPTIYZZmM1sqtjs";
 
-getN = function(n, root, wrapper, item, trim){
+function getN(n, root, wrapper, item, trim){
     var r = root;
     var now = new Date().toISOString();
     var URL = "https://www.googleapis.com/calendar/v3/calendars/e8j7bjqajiblsstfcc59iimss0%40group.calendar.google.com/events?callback=?&maxResults="+n+"&timeMin="+now+"&orderBy=startTime&singleEvents=true&key="+api;
+    addEvents(URL, r, wrapper, item, trim, false);
+}
+
+
+function getArchived(root, wrapper, item, trim){
+    var r=root;
+    var URL = "https://www.googleapis.com/calendar/v3/calendars/e8j7bjqajiblsstfcc59iimss0%40group.calendar.google.com/events?callback=?&orderBy=startTime&timeMax="+now+"&singleEvents=true&key="+api;
+  
+    addEvents(URL, r, wrapper, item, trim, true);
+    
+}
+    
+function addEvents(URL, r, wrapper, item, trim, reverse){
     $.getJSON(URL , function(json) {
         $(r).empty();
 	var events = json.items;
@@ -117,7 +119,11 @@ getN = function(n, root, wrapper, item, trim){
 	    if (texttrim[1]){
 		e.find(".description").append('...<a title="details" href="'+this.htmlLink+'">(more)</a>');
 	    };
-	    list.append(e);
+	    if(reverse){
+		list.prepend(e);
+	    }else{
+		list.append(e);
+	    }
 	});
 	$(r).append(list);
 	// get event.object[0].summary, htmlLink,start.dateTime

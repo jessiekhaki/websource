@@ -18,16 +18,16 @@ description: Chicas Events Calendar
 <div class="jquery_tabs">
       <h3 class="eventsection" >Upcoming</h3>
       <div class="tabbody">
+	<h4>Coming Next</h4>
 	<div id="events"></div>
       </div>
 
       <h3 class="eventsection" >Archive</h3>
-      <div class="tabbody"> 
-	<ul>
-	  <li>event...</li>
-	  <li>event...</li>
-	  <li>event...</li>
-	</ul>
+      <div class="tabbody">
+        <h4>Past Events</h4> 
+	<div id="eventarchive">
+
+	</div>
       </div>
 </div>
 
@@ -50,11 +50,11 @@ description: Chicas Events Calendar
 $(document).ready(function() {
 
  getN(10,"#events","eventList","eventItem",99999);
-
+ getArchived("#eventarchive","eventList","eventItem",2000)
 
 $('.jquery_tabs').accessibleTabs({tabhead: '.eventsection'});
 
-$("#showtoday").bind("click", function(){drawcalendar()});
+// $("#showtoday").bind("click", function(){drawcalendar()});
 
 drawcalendar();
 
