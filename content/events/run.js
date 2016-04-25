@@ -55,7 +55,8 @@ var templates = {
 };
 
 dateFormat = function(d){
-    return d.getDayName() + ", " + d.getDate() + " " + d.getMonthName();
+    var yr = d.getYear() + 1900;
+    return d.getDayName() + ", " + d.getDate() + " " + d.getMonthName() + " " + yr;
 }
 
 getWhen = function(v){
