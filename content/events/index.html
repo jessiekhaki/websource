@@ -51,7 +51,12 @@ $(document).ready(function() {
  getN(10,"#events","eventList","eventItem",99999);
  getArchived("#eventarchive","eventList","eventItem",2000)
 
-$('.jquery_tabs').accessibleTabs({tabhead: '.eventsection'});
+$('.jquery_tabs').accessibleTabs(
+   {
+     tabhead: '.eventsection',
+     fx: 'show',
+     fxspeed: null
+   });
 
 // $("#showtoday").bind("click", function(){drawcalendar()});
 

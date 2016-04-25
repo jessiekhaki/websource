@@ -49,7 +49,7 @@ var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturda
 
 var templates = {
     eventList: $('<div class="eventlist">'),
-    eventItem: $('<div class="event"><h3 class="summary"><a href=""></a></h3><div class="start"><span class="when"/> <span class="where"/></div><div class="description"></div></div>'),
+    eventItem: $('<div class="event"><h3 class="summary"><a target="_blank" href=""></a></h3><div class="start"><span class="when"/> <span class="where"/></div><div class="description"></div></div>'),
     upcomingBox: $('<div class="upcoming"><h4>Coming Next...</h4></div>'),
     upcomingItem: $('<div class="event"><h6 class="when"/><h5 class="summary"><a title="open calendar entry" href="" target="_blank"></a></h5><p class="description"><a href="more">more</a></p><div class="where"/></div>')
 };
