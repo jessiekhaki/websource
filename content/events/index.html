@@ -34,7 +34,14 @@ description: Chicas Events Calendar
 
 
 {% block sidebar %}
-{% include "eventsidebar.j2" %}
+<div id="calendar">
+</div>
+<h3>Calendar Page</h3>
+<p>
+CHICAS events can also be viewed on the full
+<a href="calendar.html">calendar</a> page.
+</p>
+{% include "calintegration.j2" %}
 {% endblock %}
 
 

@@ -18,7 +18,12 @@ description: Diary Dates
 {% endblock %}
 
 {% block sidebar %}
-{% include "eventsidebar.j2" %}
+<h3>Event Listings</h3>
+<p>
+The <a href="./">Event Listings</a> page shows upcoming and archived events.
+</p>
+{% include "calintegration.j2" %}
+
 {% endblock %}
 
 
