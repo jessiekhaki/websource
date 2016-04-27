@@ -152,7 +152,9 @@ drawcalendar = function(){
 	},
 	eventClick: function(event) {
 	    // opens events in a new window
-            alert('Event: '+event.title);
+            $("#event-details").find(".content").empty().append("<h3>"+event.title+"</h3>");
+	    $("#event-details").trigger('openModal');
+
 	    return false;
 	}
         // put your options and callbacks here

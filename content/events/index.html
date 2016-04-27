@@ -8,7 +8,15 @@ description: Chicas Events Calendar
 
 <link rel='stylesheet' href="{{media_url('/css/fullcalendar.css')}}" />
 <link rel='stylesheet' href="{{media_url('/css/yaml/add-ons/accessible-tabs/tabs.css')}}" />
-
+<style type="text/css">
+  .easy-modal,
+  .easy-modal-animated {
+  width: 600px;
+  padding: 2em;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.35);
+  background-color: white;
+  }
+</style>
 {% endblock %}
 
 
@@ -41,12 +49,19 @@ description: Chicas Events Calendar
 CHICAS events can also be viewed on the full
 <a href="calendar.html">calendar</a> page.
 </p>
+<div class="easy-modal" id="event-details">
+<div class="easy-modal-inner">
+<div class="content">
+</div>
+</div>
+</div>
 {% include "calintegration.j2" %}
 {% endblock %}
 
 
 {% block footscripts %}
 <script src="{{media_url('/js/libs/jquery.min.js')}}"></script>
+<script src="{{media_url('/js/libs/jquery.easyModal.js')}}"></script>
 <script src="run.js"></script>
 <script src="{{media_url('/js/libs/moment.min.js')}}"></script>
 <script src="{{media_url('/js/libs/fullcalendar.min.js')}}"></script>
@@ -68,6 +83,12 @@ $('.jquery_tabs').accessibleTabs(
 // $("#showtoday").bind("click", function(){drawcalendar()});
 
 drawcalendar();
+
+	$('.easy-modal').easyModal({
+			top: 200,
+			overlay: 0.2
+		});
+
 
 });
 </script>
