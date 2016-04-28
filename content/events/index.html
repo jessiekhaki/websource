@@ -53,6 +53,7 @@ CHICAS events can also be viewed on the full
 <div class="easy-modal-inner">
 <div class="content">
 </div>
+<button class="easy-modal-close" title="Close">&times;</button>
 </div>
 </div>
 {% include "calintegration.j2" %}
@@ -89,7 +90,9 @@ drawcalendar();
 			overlay: 0.2
 		});
 
-
+	$('.easy-modal-close').click(function(e) {
+			$('.easy-modal').trigger('closeModal');
+		});
 });
 </script>
 {% endblock footscripts %}

@@ -152,7 +152,7 @@ drawcalendar = function(){
 	},
 	eventClick: function(event) {
 	    // opens events in a new window
-            $("#event-details").find(".content").empty().append("<h3>"+event.title+"</h3>");
+            $("#event-details").find(".content").empty().append(popuptemplate(event));
 	    $("#event-details").trigger('openModal');
 
 	    return false;
@@ -162,3 +162,15 @@ drawcalendar = function(){
     }
 
  
+function popuptemplate(event){
+    var e = templates["eventItem"].clone();
+    var when = event.start;
+    var where = event.location || ' ';
+    var texttrim = event.description || '';
+    e.find("a").text(event.title).attr("href",event.url).end()
+	.find(".when").text(when).end()
+	.find(".where").text(where).end()
+	.find(".description").text(texttrim);
+    return e;
+};
+
