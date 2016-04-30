@@ -156,7 +156,10 @@ drawcalendar = function(){
 	    $("#event-details").trigger('openModal');
 
 	    return false;
-	}
+	},
+	eventRender: function(event, element) {
+            element.attr('title', event.title);
+        }
         // put your options and callbacks here
     })
     }
