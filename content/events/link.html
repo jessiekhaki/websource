@@ -5,11 +5,15 @@ description: Chicas Events Calendar
 ---
 
 {% block extrahead %}
+<link rel='stylesheet' href="{{media_url('/js/libs/jquery.icalendar.css')}}" />
 
 {% endblock %}
 
 
 {% block main %}
+
+<p>This is australia day</p>
+<div id="basicICal"></div>
 
 Please <a id="mydate" href="">Click Me</a>
 
@@ -22,9 +26,18 @@ Please <a id="mydate" href="">Click Me</a>
 
 {% block footscripts %}
 <script src="{{media_url('/js/libs/jquery.min.js')}}"></script>
+<script src="{{media_url('/js/libs/jquery.icalendar.js')}}"></script>
+<script>
+  var AustDayLunch = {start: new Date(2008, 1-1, 26, 11, 30, 00),
+  end: new Date(2008, 1-1, 26, 12, 45, 00),
+  title: 'Australia Day lunch',
+  description: 'A traditional barbeque for our big day',
+  location: 'On your local beach'};
+  $('#basicICal').icalendar($.extend({icons: 'img/icalendar.png'}, AustDayLunch));
+
+</script>
 
 <script>
-
 var URL = 'data:text/calendar;charset=utf-8,' +
     encodeURIComponent("BEGIN:VCALENDAR\n\
 VERSION:2.0\n\
