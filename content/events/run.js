@@ -135,7 +135,7 @@ function addEvents(URL, r, wrapper, item, trim, reverse){
 
 
 
-drawcalendar = function(){
+function drawcalendar(){
     $('#calendar').fullCalendar({
 	googleCalendarApiKey: 'AIzaSyAB1Jd-Jf3U-R84BJzJAPTIYZZmM1sqtjs',
 	events: {
@@ -177,3 +177,27 @@ function popuptemplate(event){
     return e;
 };
 
+function fullcalendar_to_ics(event){
+var uid="123345@chicas";
+var dtstart="20160714T170000Z";
+var dtend="20160714T190000Z";
+var summary="Bastille day party time";
+var s = "BEGIN:VCALENDAR\n\
+VERSION:2.0\n\
+PRODID:-//CHICAS Lancaster University//NONSGML v1.0//EN\n\
+BEGIN:VEVENT\n\
+UID:"+uid+"\n\
+DTSTART:"+dtstart+"\n\
+DTEND:"+dtend+"\n\
+SUMMARY:"+summary+"\n\
+END:VEVENT\n\
+END:VCALENDAR\n";
+return s;
+}
+
+function fullcal_to_uri(event){
+var s = fullcalendar_to_ics(event);
+var URL = 'data:text/calendar;charset=utf-8,' +
+    encodeURIComponent(s);
+return URL;
+}
