@@ -153,6 +153,7 @@ function drawcalendar(){
 	eventClick: function(event) {
 	    // opens events in a new window
             $("#event-details").find("#popup-event").empty().append(popuptemplate(event));
+	    add_calendar_links(event, "#popup-event .description");
 	    $("#event-details").trigger('openModal');
 
 	    return false;
@@ -177,27 +178,20 @@ function popuptemplate(event){
     return e;
 };
 
-function fullcalendar_to_ics(event){
-var uid="123345@chicas";
-var dtstart="20160714T170000Z";
-var dtend="20160714T190000Z";
-var summary="Bastille day party time";
-var s = "BEGIN:VCALENDAR\n\
-VERSION:2.0\n\
-PRODID:-//CHICAS Lancaster University//NONSGML v1.0//EN\n\
-BEGIN:VEVENT\n\
-UID:"+uid+"\n\
-DTSTART:"+dtstart+"\n\
-DTEND:"+dtend+"\n\
-SUMMARY:"+summary+"\n\
-END:VEVENT\n\
-END:VCALENDAR\n";
-return s;
-}
-
-function fullcal_to_uri(event){
-var s = fullcalendar_to_ics(event);
-var URL = 'data:text/calendar;charset=utf-8,' +
-    encodeURIComponent(s);
-return URL;
+function add_calendar_links(event, id){
+    var myCalendar = createCalendar({
+	calendars: ['google','ical','yahoo','outlook'],
+	options: {
+	    class_name: 'calendaradder',
+	    id: 'addtocalendar'
+	},
+	data: {
+	    title: event.title,
+	    start: new Date(event.start),
+	    end: new Date(event.end),     
+	    address: event.location,
+	    description: event.description
+	}
+    });
+    document.querySelector(id).appendChild(myCalendar);
 }

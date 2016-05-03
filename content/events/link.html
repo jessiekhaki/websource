@@ -14,9 +14,7 @@ description: Chicas Events Calendar
 
 <p>This is the day</p>
 <div id="eventhere"></div>
-<p>
-Please <a id="mydate" href="">Click Me</a>
-</p>
+
 {% endblock %}
 
 {% block sidebar %}
@@ -26,16 +24,16 @@ Please <a id="mydate" href="">Click Me</a>
 
 {% block footscripts %}
 <script src="{{media_url('/js/libs/jquery.min.js')}}"></script>
-<script src="{{media_url('/js/libs/ouical.min.js')}}"></script>
+<script src="{{media_url('/js/libs/ouical-orig.min.js')}}"></script>
 <script>
 var myCalendar = createCalendar({
   // optional, you can pass in 'google', 'yahoo', 'outlook', 'ical'
   calendars: ['google','ical','yahoo','outlook'],
   options: {
-    class: 'my-class',
+    class_name: 'calendaradder',
 
     // You can pass an ID. If you don't, one will be generated for you
-    id: 'my-id'
+    id: 'addtocalendar'
   },
   data: {
     // Event title
@@ -63,23 +61,6 @@ document.querySelector('#eventhere').appendChild(myCalendar);
 
 </script>
 
-<script>
-var URL = 'data:text/calendar;charset=utf-8,' +
-    encodeURIComponent("BEGIN:VCALENDAR\n\
-VERSION:2.0\n\
-PRODID:-//CHICAS Lancaster University//NONSGML v1.0//EN\n\
-BEGIN:VEVENT\n\
-UID:uid1@example.com\n\
-DTSTAMP:19970714T170000Z\n\
-DTSTART:20160714T170000Z\n\
-DTEND:20160715T035959Z\n\
-SUMMARY:Bastille Day Party\n\
-END:VEVENT\n\
-END:VCALENDAR\n");
 
-$("#mydate").attr("href", URL);
-
-
-</script>
 {% endblock footscripts %}
 
