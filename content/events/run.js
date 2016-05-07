@@ -125,7 +125,7 @@ function addEvents(URL, r, wrapper, item, trim, reverse){
 		e.append(gg);
 	    }
 	    catch(err) {
-		alert("error");
+
 	    };
 	    if(reverse){
 		list.prepend(e);
