@@ -120,8 +120,13 @@ function addEvents(URL, r, wrapper, item, trim, reverse){
 	    if (texttrim[1]){
 		e.find(".description").append('...<a title="details" href="'+this.htmlLink+'">(more)</a>');
 	    };
-	    var gg = google_calendar_to_links(this);
-	    e.find(".description").append(gg);
+	    try {
+		var gg = google_calendar_to_links(this);
+		e.append(gg);
+	    }
+	    catch(err) {
+		alert("error");
+	    };
 	    if(reverse){
 		list.prepend(e);
 	    }else{
@@ -181,6 +186,20 @@ function popuptemplate(event){
 };
 
 function google_calendar_to_links(event){
+    if (event.start.dateTime){
+	var start=new Date(event.start.dateTime);
+    }
+    if (event.start.date){
+	var start= new Date(event.start.date);
+    }
+
+    if (event.end.dateTime){
+	var end=new Date(event.end.dateTime);
+    }
+    if (event.end.date){
+	var end= new Date(event.end.date);
+    }
+
     var myCalendar = createCalendar({
 	calendars: ['google','ical','yahoo','outlook'],
 	options: {
@@ -188,8 +207,8 @@ function google_calendar_to_links(event){
 	},
 	data: {
 	    title: event.summary,
-	    start: new Date(event.start.dateTime),
-	    end: new Date(event.end.dateTime),     
+	    start: new Date(start),
+	    end: new Date(end),     
 	    address: event.location,
 	    description: event.description
 	}
