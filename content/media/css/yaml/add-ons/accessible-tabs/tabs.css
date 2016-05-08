@@ -55,7 +55,7 @@
   .jquery_tabs ul.tabs-list li.current a:hover,
   .jquery_tabs ul.tabs-list li.current a:active {
     background: #fff;
-    border: 1px #ccc solid;
+    border: 1px #b5121b solid;
     border-radius: 0.2em 0.2em 0 0;
     color: #000;
     border-bottom: 0 none;
@@ -63,7 +63,7 @@
     text-decoration: none;
   }
   .jquery_tabs .content {
-    border-top: 1px #ccc solid;
+    border-top: 1px #b5121b solid;
     clear: both;
     padding: 0;
     position: relative;
