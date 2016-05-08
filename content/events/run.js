@@ -177,11 +177,14 @@ function popuptemplate(event){
     var e = templates["eventItem"].clone();
     var when = event.start;
     var where = event.location || ' ';
-    var texttrim = event.description || '';
+    var texttrim = trimit(event.description || '',500);
     e.find("a").text(event.title).attr("href",event.url).end()
 	.find(".when").text(when).end()
 	.find(".where").text(where).end()
-	.find(".description").text(texttrim);
+	.find(".description").text(texttrim[0]);
+    if (texttrim[1]){
+	e.find(".description").append('...<a title="details" href="'+event.url+'">(more)</a>');
+    };
     return e;
 };
 
