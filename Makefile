@@ -18,3 +18,6 @@ publish:
 travis:
 	./push.sh
 
+# Convert poster PDFs to thumbnails with:
+# convert  -geometry 190x -background white -alpha remove -crop 190x100+0+0 foo.pdf foo.png
+
