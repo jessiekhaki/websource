@@ -23,6 +23,7 @@ stagecopy:
 
 stagepush:
 	cd ../chicas.gitlab.io/
+	git add .
 	git commit -a -m 'staging push'
 	git push
 
