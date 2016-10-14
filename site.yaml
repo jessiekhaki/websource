@@ -44,6 +44,12 @@ context:
                 type: node
                 url: partners.html
             -
+                name: Training
+                description: Graduate Studies and Courses
+                css_class: training
+                type: node
+                url: training.html
+            -
                 name: News
                 description: News Items
                 css_class: news
