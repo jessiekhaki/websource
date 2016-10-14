@@ -22,9 +22,9 @@ stagecopy:
 	cp -r deploy/* ../chicas.gitlab.io/
 
 stagepush:
-	cd ../chicas.gitlab.io/
-	git add .
-	git commit -a -m 'staging push'
+	cd ../chicas.gitlab.io/ && \
+	git add . && \
+	git commit -a -m 'staging push' && \
 	git push
 
 # Convert poster PDFs to thumbnails with:
