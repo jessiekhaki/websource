@@ -20,7 +20,7 @@ travis:
 
 stagecopy:
 	cp -r deploy/* ../chicas.gitlab.io/
-
+	./tools/stagify.sh ../chicas.gitlab.io/
 stagepush:
 	cd ../chicas.gitlab.io/ && \
 	git add . && \
