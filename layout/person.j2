@@ -24,6 +24,13 @@ Email: <a href="mailto:{{resource.meta.email}}">{{resource.meta.email}}</a>
 </p>
 {% endif %}
 
+{% if resource.meta.orcid %}
+<p>
+Orcid: <a href="http://orcid.org/{{resource.meta.orcid}}">{{resource.meta.orcid}}</a>
+</p>
+{% endif %}
+
+
 {% set projectnode = resource.node.root.node_from_relative_path("projects/") %}
 {% set current = [] %}
 {% set finished = [] %}
