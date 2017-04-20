@@ -4,15 +4,14 @@ title: People
 description: List of CHICAS people
 ---
 {% block main %}
-<h2>Personnel</h2>
+<h2>Former CHICAS Personnel</h2>
 <div id="peoplegroups">
 {% for grp, res_walker in site.content.walk_status_groups() %}
-{% if grp.showGroupOnMain  %}
+{% if not grp.showGroupOnMain %}
 {% for res in res_walker|surnamesort %}
-
 {% if loop.first %}
 <div class="peoplegroup">
-<h3>{{ grp.description }}</h3>
+<h3>Staff, students, and visitors</h3>
 <ul>
 {% endif %}
   <li><a href="{{res.full_url}}">{{ res.meta.title }}</a></li>
@@ -30,14 +29,14 @@ description: List of CHICAS people
 {% endblock %}
 
 {% block sidebar %}
-<h2>CHICAS people</h2>
+<h2>Former CHICAS people</h2>
 <p>
-CHICAS has a number of permanent university staff as
-well as postdoctorate researchers on project contracts. We have a
-lively group of PhD students as well as frequent visitors
-from the international statistical community.
+This list includes students who have graduated, staff
+who have moved to other places, and visitors who have 
+since gone back home.
 </p>
 <p>
-There is also a list of <a href="former.html">former CHICAS members</a>.
+The list of <a href="index.html">current CHICAS personnel</a>
+is also available.
 </p>
 {% endblock %}

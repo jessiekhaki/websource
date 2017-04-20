@@ -90,16 +90,22 @@ grouper:
         groups:
            - name: staff
              description: "Staff"
+             showGroupOnMain: True
            - name: pdra
              description: "Post-Doc RAs"
+             showGroupOnMain: True
            - name: phd
              description: "PhD Students"
+             showGroupOnMain: True
            - name: visitor
              description: "Visiting Staff and Students"
+             showGroupOnMain: True
            - name: intern
              description: "Internships"
+             showGroupOnMain: True
            - name: former
              description: "Former Staff, Students, Visitors"
+             showGroupOnMain: False
 publisher:
     github:
         type: hyde.ext.publishers.dvcs.Git
