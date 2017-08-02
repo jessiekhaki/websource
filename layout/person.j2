@@ -30,6 +30,12 @@ Orcid: <a href="http://orcid.org/{{resource.meta.orcid}}">{{resource.meta.orcid}
 </p>
 {% endif %}
 
+{% if resource.meta.pure %}
+<p>
+Research Portal: <a href="http://www.research.lancs.ac.uk/portal/en/people/{{resource.meta.pure}}/publications.html">Publications</a>
+</p>
+{% endif %}
+
 
 {% set projectnode = resource.node.root.node_from_relative_path("projects/") %}
 {% set current = [] %}
