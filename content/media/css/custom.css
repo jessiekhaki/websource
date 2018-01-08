@@ -8,7 +8,13 @@ a:hover {
  text-decoration: underline;
 }
 
-.leaflet-container  a:hover, a:focus {
+a.plainhead { 
+    color: #b5121b;
+    background: transparent;
+}
+
+
+.leaflet-container  a:hover {
     background-color: #4d87c7;
     color: white;
     text-decoration: none;

@@ -8,41 +8,46 @@ description: Home page for CHICAS
   <div class="ym-grid linearize-level-1">
     <div class="ym-g66 ym-gl">
       <div class="ym-grid linearize-level-2">
+
 	<article class="ym-g50 ym-gl">
 	  <div class="ym-gbox-left">
-	    <h4>Our Work</h4>
-	    <p>Want to know more about spatial epidemiology or the work of the group?</p>
-	    <ul>
-	      <li><a href="about.html">About the group</a></li>
-	      <li><a href="/projects">Project list</a></li>
-	      <li><a href="/posters.html">Research Posters</a></li>
-	    </ul>
+	    <h4><a class="plainhead" href="/study">Study with CHICAS</a></h4>
+<!-- PhD opps go here -->
+	    <p>CHICAS supervises PhD students and operates the MRes Global Health programme. See
+our <a href="/study">Study with CHICAS</a> pages for more details.
+</p>
 	  </div>
 	</article>
+	
 	<article class="ym-g50 ym-gr">
 	  <div class="ym-gbox">
-<h4>Locations</h4>
-<a href="/map.html">
-<div id="maplink">
-  <img id="locationthumb" src="/media/images/graphics/location.png"/>
-  <div id="locationcaption">
-The <a href="/map.html">project map</a> shows our global connections.
-  </div>
-</div>
-</a>
+	    <h4><a href="/work" class="plainhead">Work with CHICAS</a></h4>
+<p>We are open to collaborations with individuals and organisations. See our <a href="/partners.html">Partners</a>
+page for a list of past and current organisations we have worked with. Feel free to contact any of our
+staff with relevant interests to start a discussion.</p>
+<!-- job opps go here -->
+
+<!--p>We currently have an opening for an X in Y. See our <a href="/work">job opportunities</a> for more 
+information</p-->
+
 	  </div>
 	</article>
+
       </div>
       
     </div>
+
     <article class="ym-g33 ym-gr">
       <div class="ym-gbox-right secondary">
-	<h4>Tags</h4>
-<h6>See all our content by category</h6>
-{% for tag,meta in site.tagger.tagdict|dictsort %}
-<span class="tag label quant-{{meta.klass}}"><a href="tags.html#{{tag}}">{{tag}}
-</a></span>
-{% endfor %}
+	<h4><a href="/map.html" class="plainhead">Locations</a></h4>
+	    <a href="/map.html">
+	      <div id="maplink">
+		<img id="locationthumb" src="/media/images/graphics/location.png"/>
+		<div id="locationcaption">
+		  The <a href="/map.html">project map</a> shows our global connections.
+		</div>
+	      </div>
+	    </a>
       </div>
     </article>
   </div>

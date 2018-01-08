@@ -26,6 +26,12 @@ context:
                 type: page
                 url: index.html
             -
+                name: About Us
+                description: CHICAS Information
+                css_class: home
+                type: page
+                url: about.html
+            -
                 name: Projects
                 description: Projects
                 css_class: projects
