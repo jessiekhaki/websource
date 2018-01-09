@@ -77,6 +77,14 @@ label span.tag:hover {
     margin-bottom: 3px; 
 }
 
+#lulogo {
+    padding-top: 1em;
+}
+
+#clogo {
+    padding-bottom: 1em;
+}
+
 img.newspic {
  border: 2px solid #CCCCCC;
  float: left;
