@@ -13,6 +13,10 @@ a.plainhead {
     background: transparent;
 }
 
+a.carousel {
+  color: white;
+  text-decoration: underline;
+}
 
 .leaflet-container  a:hover {
     background-color: #4d87c7;
