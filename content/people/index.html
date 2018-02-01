@@ -2,9 +2,10 @@
 extends: flexigridisotopepeople.j2
 title: People
 description: List of CHICAS people
+mres: a number of students
 ---
 {% block main %}
-<h2>Personnel</h2>
+<!--h2>Personnel</h2-->
 <div id="peoplegroups">
 {% for grp, res_walker in site.content.walk_status_groups() %}
 {% if grp.showGroupOnMain  %}
@@ -16,7 +17,6 @@ description: List of CHICAS people
 <ul>
 {% endif %}
   <li><a href="{{res.full_url}}">{{ res.meta.title }}</a></li>
-
 {% if loop.last %}
 </ul>
 </div>
@@ -24,6 +24,12 @@ description: List of CHICAS people
 {% endfor %}
 {% endif %}
 {% endfor %}
+
+<div class="peoplegroup">
+<h3>Masters Students</h3>
+<p>We currently have {{resource.meta.mres}} on our <a href="/study">MRes Global Health</a>.</p>
+</div>
+
 
 </div>
 

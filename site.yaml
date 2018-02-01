@@ -95,10 +95,10 @@ grouper:
         sorter: peeps
         groups:
            - name: staff
-             description: "Staff"
+             description: "Academic Staff"
              showGroupOnMain: True
            - name: pdra
-             description: "Post-Doc RAs"
+             description: "Post-Doctoral Researchers"
              showGroupOnMain: True
            - name: phd
              description: "PhD Students"
