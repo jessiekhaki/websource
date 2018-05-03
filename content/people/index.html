@@ -7,21 +7,26 @@ mres: a number of students
 {% block main %}
 <!--h2>Personnel</h2-->
 <div id="peoplegroups">
-{% for grp, res_walker in site.content.walk_status_groups() %}
-{% if grp.showGroupOnMain  %}
-{% for res in res_walker|surnamesort %}
+  {% for grp, res_walker in site.content.walk_status_groups() %}
+  {% set ppl = res_walker|surnamesort %}
+{% if grp.showGroupOnMain and ppl|length > 0 %}
 
-{% if loop.first %}
 <div class="peoplegroup">
 <h3>{{ grp.description }}</h3>
 <ul>
-{% endif %}
-  <li><a href="{{res.full_url}}">{{ res.meta.title }}</a></li>
-{% if loop.last %}
+
+{% for res in ppl %}
+
+  <li><a href="{{res.full_url}}">{{ res.meta.title }}</a>
+  {% if grp.showAffiliation and res.meta.affiliation %}
+  <div class="affiliation">{{res.meta.affiliation}}</div>
+  {% endif %}
+  </li>
+{% endfor %}
 </ul>
 </div>
-{% endif %} 
-{% endfor %}
+
+
 {% endif %}
 {% endfor %}
 

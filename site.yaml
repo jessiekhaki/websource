@@ -103,9 +103,10 @@ grouper:
            - name: phd
              description: "PhD Students"
              showGroupOnMain: True
-           - name: visitor
-             description: "Visiting Staff and Students"
+           - name: associate
+             description: "Associate and Visiting Staff"
              showGroupOnMain: True
+             showAffiliation: True
            - name: intern
              description: "Internships"
              showGroupOnMain: True
