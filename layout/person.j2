@@ -2,6 +2,9 @@
 
 {% block main %}
 <h2>{{ resource.meta.title }}</h2>
+{% if resource.meta.affiliation %}
+<h3>{{resource.meta.affiliation}}</h3>
+{% endif %}
 <p>
 {% block person %}
 {% endblock %}
