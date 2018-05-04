@@ -19,7 +19,7 @@ mres: a number of students
 
   <li><a href="{{res.full_url}}">{{ res.meta.title }}</a>
   {% if grp.showAffiliation and res.meta.affiliation %}
-  <div class="affiliation">{{res.meta.affiliation}}</div>
+  <div class="affiliation">{{res.meta.affiliation.title}}</div>
   {% endif %}
   </li>
 {% endfor %}
