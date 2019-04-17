@@ -1,4 +1,4 @@
-language: python
+language: python:2.7
 script: make travis
 env:
   global:
