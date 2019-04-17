@@ -17,7 +17,7 @@ publish:
 
 travis:
 	sudo apt-get install python-dev libffi-dev libssl-dev
-	pip install --upgrade ndg-httpsclient 
+	pip install pyopenssl ndg-httpsclient pyasn1
 	pip install -r requirements.txt
 	./push.sh
 
