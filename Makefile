@@ -16,7 +16,7 @@ publish:
 	hyde publish
 
 travis:
-	apt-get install python-dev libffi-dev libssl-dev
+	sudo apt-get install python-dev libffi-dev libssl-dev
 	pip install --upgrade ndg-httpsclient 
 	pip install -r requirements.txt
 	./push.sh
