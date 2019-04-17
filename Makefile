@@ -16,6 +16,7 @@ publish:
 	hyde publish
 
 travis:
+	pip install --upgrade pip
 	pip install requests[security]
 	pip install -r requirements.txt
 	./push.sh
