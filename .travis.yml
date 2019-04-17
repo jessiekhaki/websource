@@ -1,5 +1,8 @@
-language: python:2.7
-script: make travis
+language: python
+python:
+ - "2.7"
+script:
+ - make travis
 env:
   global:
     secure: d/X2DBO7buM2ixuRArpmCJNm+BMwzFRRZPT8YbXULz1kL/ddmcmQdMBjZlbfUQeZSpnPGuCTqpL6/xKTZZlE7iWCMQo3jsKMp7qp2ptJNh4GdgVVGhIunmDecslfx9cDwij172RWHlfmUjfutq3BcNrPxmPwkX3GSlNgjaKXog8=
