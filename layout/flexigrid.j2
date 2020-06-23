@@ -10,9 +10,9 @@
 	<!-- (en) Add your meta data here -->
 	<!-- (de) Fuegen Sie hier ihre Meta-Daten ein -->
 
-	<meta name="description" content="{{resource.meta.description}}"/>
+	<meta name="description" content="{{resource.meta.description|e}}"/>
 	{% if resource.meta.keywords %}
-	<meta name="keywords" content="{{ resource.meta.keywords|join(", ")}}" />
+	<meta name="keywords" content="{{ resource.meta.keywords|join(", ")|e}}" />
 	{% endif %}
 	
 	<link href="{{media_url('/css/flexible-grids.css')}}" rel="stylesheet" type="text/css"/>
