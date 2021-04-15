@@ -1,0 +1,72 @@
+---
+extends: flexigrid.j2
+title: Student Posters 2020-2021 Cohort
+description: MRes Student Posters
+posters:
+ - title: "The Impact of Tiered Control on the SARS-CoV-2 Epidemic in England"
+   file: "CHIC599_presentation Caitlin Greenland-Bews.pdf"
+   image: "CHIC599_presentation Caitlin Greenland-Bews.png"
+   authors: Caitlin Greenland-Bews
+
+ - title: "Estimating COVID-19 hospitalisation risk in England adjusting for sociodemographic & spatial covariate effects"
+   file: "Cian Ryan PR1 Poster.pdf"
+   image: "Cian Ryan PR1 Poster.png"
+   authors: Cian Ryan
+ - title: "Leptospirosis: Do meteorological factors have an impact on incidents within Salvador, Brazil?"
+   file: "Daniel Marcinko LEPTOSPIROSIS PROJECT POSTER.pdf"
+   image: "Daniel Marcinko LEPTOSPIROSIS PROJECT POSTER.png"
+   authors: Daniel Marcinko
+ - title: "Health facilities in Malawi"
+   file: "Faduma Farah Poster.pdf"
+   image: "Faduma Farah Poster.png"
+   authors: Faduma Farah
+ - title: "Developing open source tools to estimate accessibility to healthcare"
+   file: "John Archer Developing open source tools to estimate accessibility to healthcare.pdf"
+   image: "John Archer Developing open source tools to estimate accessibility to healthcare.png"
+   authors: John Archer
+ - title: "Exploration of variables best able to predict a mother’s exposure to Zika Virus in Salvador, Brazil"
+   file: "Rosalyn Arnold Project 1 poster.pdf"
+   image: "Rosalyn Arnold Project 1 poster.png"
+   authors: Rosalyn Arnold
+ - title: "Pass it on: School attendance and public-facing employment predict COVID-19 transmission in England"
+   file: "Sara Begg R naught poster.pdf"
+   image: "Sara Begg R naught poster.png"
+   authors: Sara Begg
+
+---
+
+{% block main %}
+<h2>MRes Project Posters for 2020/2021 Students</h2>
+<p>
+  These posters are produced by our MRes students to accompany their first project, which
+  are mostly novel research problems with real-world data sets.
+</p>
+<p>
+  The posters appear by kind permission of the individual students.
+</p>
+{% for posters in resource.meta.posters|sort(attribute='title')|batch(2,False) %}
+<div class="ym-grid linearize-level-2">
+ {% for poster in posters %}
+   <div class="ym-g50 ym-gl">
+     <div class="poster ym-clearfix">
+      <div class="ym-grid">
+      {% if poster %}
+      <div class="ym-g25 ym-gl">
+        <a href="./2020/{{poster.file}}"><img class="bordered" src="./2020/{{poster.image}}" alt="{{poster.title}}"/></a>
+      </div>
+      <div class="ym-g75 ym-gl">
+        <p><a href="./2020/{{poster.file}}">{{poster.title}}</a> : {{poster.authors}}</p>
+      </div>
+      {% endif %}
+      </div>
+     </div>
+   </div>
+{% endfor %}
+</div>
+{% endfor %}
+
+{% endblock %}
+    
+{% block sidebar %}
+
+{% endblock %}
