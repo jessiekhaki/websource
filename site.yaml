@@ -44,11 +44,11 @@ context:
                 type: node
                 url: people
             -
-                name: Partners
-                description: Partners and Affiliations
-                css_class: partners
-                type: node
-                url: partners.html
+                name: Research Themes
+                description: Our Research Theme Details
+                css_class: research
+                type: page
+                url: themes.html
             -
                 name: News
                 description: News Items
