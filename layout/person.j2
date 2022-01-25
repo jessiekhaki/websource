@@ -25,23 +25,23 @@
 </div>
 {% endif %}
 
+<dl class="personitems">
 {% if resource.meta.email %}
-<p>
-Email: <a href="mailto:{{resource.meta.email}}">{{resource.meta.email}}</a>
-</p>
+<dt>Email</dt><dd><a href="mailto:{{resource.meta.email}}">{{resource.meta.email}}</a></dd>
+{% endif %}
+{% if resource.meta.pronouns %}
+<dt>Pronouns</dt><dd>{{resource.meta.pronouns}}</dd>
 {% endif %}
 
 {% if resource.meta.orcid %}
-<p>
-Orcid: <a href="http://orcid.org/{{resource.meta.orcid}}">{{resource.meta.orcid}}</a>
-</p>
+<dt>Orcid</dt><dd><a href="http://orcid.org/{{resource.meta.orcid}}">{{resource.meta.orcid}}</a></dd>
 {% endif %}
 
 {% if resource.meta.pure %}
-<p>
-Research Portal: <a href="http://www.research.lancs.ac.uk/portal/en/people/{{resource.meta.pure}}/publications.html">Publications</a>
-</p>
+<dt>Research Portal</dt><dd><a href="http://www.research.lancs.ac.uk/portal/en/people/{{resource.meta.pure}}/publications.html">Publications</a></dd>
 {% endif %}
+
+</dl>
 
 
 {% set projectnode = resource.node.root.node_from_relative_path("projects/") %}
