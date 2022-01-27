@@ -98,7 +98,7 @@ grouper:
              description: "Academic Staff"
              showGroupOnMain: True
            - name: pdra
-             description: "Post-Doctoral Researchers"
+             description: "Research Staff"
              showGroupOnMain: True
            - name: phd
              description: "PhD Students"
